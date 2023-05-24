@@ -1,0 +1,17 @@
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\obj\Debug\net6.0-windows\aula03-varString.vbproj.AssemblyReference.cache
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\obj\Debug\net6.0-windows\aula03_varString.frm_princ_string03.resources
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\obj\Debug\net6.0-windows\aula03-varString.vbproj.GenerateResource.cache
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\obj\Debug\net6.0-windows\aula03-varString.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\obj\Debug\net6.0-windows\aula03-varString.AssemblyInfoInputs.cache
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\obj\Debug\net6.0-windows\aula03-varString.AssemblyInfo.vb
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\obj\Debug\net6.0-windows\aula03-varString.vbproj.CoreCompileInputs.cache
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\bin\Debug\net6.0-windows\aula03-varString.exe
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\bin\Debug\net6.0-windows\aula03-varString.deps.json
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\bin\Debug\net6.0-windows\aula03-varString.runtimeconfig.json
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\bin\Debug\net6.0-windows\aula03-varString.dll
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\bin\Debug\net6.0-windows\aula03-varString.pdb
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\obj\Debug\net6.0-windows\aula03-varString.dll
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\obj\Debug\net6.0-windows\refint\aula03-varString.dll
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\obj\Debug\net6.0-windows\aula03-varString.pdb
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\obj\Debug\net6.0-windows\aula03-varString.genruntimeconfig.cache
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula03-varString\obj\Debug\net6.0-windows\ref\aula03-varString.dll

@@ -1,0 +1,16 @@
+#Config
+#Thu Mar 16 17:26:28 BRT 2023
+cfg.ancorador=true
+cfg.autosalvarintervalo=5
+cfg.mostrargrade=true
+cfg.apagartextoaoeditar=true
+cfg.location.y=-8
+cfg.location.x=-8
+cfg.mostrardimensoesaomover=true
+cfg.gradelargura=23
+cfg.mostrartooltips=true
+cfg.tipodefault=0
+cfg.mostrarids=false
+cfg.recentes=D\:\\alura\\alura\\modelagem\\Conceitual_1.brM3;D\:\\alura\\alura\\modelagem\\L\u00F3gico_1.brM3
+cfg.location.salvar=true
+cfg.propaguedeletetolines=true

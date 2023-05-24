@@ -1,0 +1,19 @@
+# tratando erros
+# Get-Variable | ? Name -like *error*
+# Get-Variable | ? Name -like *Preference*
+$ErrorActionPreference = "Stop"
+
+$nameExpr = @{
+	Label="NOME";
+	Expression={$_.Name}
+}
+
+$lengthExpr = @{
+	Label="TAMANHO";
+	Expression={"{0:N2}KB" -f ($_.length / 1kb)}
+}
+
+$params = ($nameExpr, $lengthExpr)
+gci -Recurse -File |
+	? Name -like "*txt*" |
+	select $params

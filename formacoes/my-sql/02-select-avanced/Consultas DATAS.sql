@@ -1,0 +1,49 @@
+
+SELECT CURDATE();
+
+SELECT CURRENT_TIME();
+
+SELECT CURRENT_TIMESTAMP();
+
+SELECT YEAR(CURRENT_TIMESTAMP());
+
+SELECT DAY(CURRENT_TIMESTAMP());
+
+SELECT MONTH(CURRENT_TIMESTAMP());
+
+SELECT MONTHNAME(CURRENT_TIMESTAMP());
+
+SELECT DATEDIFF(CURRENT_TIMESTAMP(), '2019-01-01') AS RESULTADO;
+
+SELECT DATEDIFF(CURRENT_TIMESTAMP(), '1965-09-04') AS RESULTADO;
+
+SELECT CURRENT_TIMESTAMP() AS DIA_HOJE
+, DATE_SUB(CURRENT_TIMESTAMP(), INTERVAL 5 DAY) AS RESULTADO;
+
+SELECT DISTINCT DATA_VENDA,
+DAYNAME(DATA_VENDA) AS DIA, MONTHNAME(DATA_VENDA) AS MES
+, YEAR(DATA_VENDA) AS ANO FROM NOTAS_FISCAIS;
+
+SELECT NOME, TIMESTAMPDIFF (YEAR, DATA_DE_NASCIMENTO, CURDATE()) AS    IDADE
+FROM  tabela_de_clientes;
+
+-- Na tabela de notas fiscais temos o valor do imposto. Já na tabela de itens 
+-- temos a quantidade e o faturamento. Calcule o valor do imposto pago no ano de 2016 arredondando para o menor inteiro.
+-- operação matematica
+SELECT YEAR(DATA_VENDA), FLOOR(SUM(IMPOSTO * (QUANTIDADE * PRECO))) 
+FROM notas_fiscais NF
+INNER JOIN itens_notas_fiscais INF ON NF.NUMERO = INF.NUMERO
+WHERE YEAR(DATA_VENDA) = 2016
+GROUP BY YEAR(DATA_VENDA);
+
+
+-- Queremos construir um SQL cujo resultado seja, para cada cliente:
+-- “O cliente João da Silva faturou 120000 no ano de 2016”. Somente para o ano de 2016.
+
+SELECT CONCAT('O cliente ', TC.NOME, ' faturou ', 
+CAST(SUM(INF.QUANTIDADE * INF.preco) AS char (20))
+ , ' no ano ', CAST(YEAR(NF.DATA_VENDA) AS char (20))) AS SENTENCA FROM notas_fiscais NF
+INNER JOIN itens_notas_fiscais INF ON NF.NUMERO = INF.NUMERO
+INNER JOIN tabela_de_clientes TC ON NF.CPF = TC.CPF
+WHERE YEAR(DATA_VENDA) = 2016
+GROUP BY TC.NOME, YEAR(DATA_VENDA)

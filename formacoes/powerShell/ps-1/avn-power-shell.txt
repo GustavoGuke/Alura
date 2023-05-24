@@ -1,0 +1,71 @@
+# Mostrar todos os arquivos e pastas do diretório
+# gci = alias de Get-ChildItem  
+# -recursive entra nas pastas e lista os arquivos e diretórios
+# -File apenas arquivos
+## comando
+:$todosOsItens = gci -Recurse
+:$todosOsItens = gci -Recurse -File
+:$todosOsItens.length
+
+# tarefa selecionar apenas os arquivos ps1
+# | = concatena comandos
+# Select-Object Name = selecionar apenas os nomes dos arquivos
+# where = onde
+# -like = parecido
+# padrao de projetos filter left format rigth
+# script 3 fazer o filtro primeiro para depois formatar a saida
+## comando
+1:$todos = gci -Recurse -File | Select-Object Name 
+2:$todos = gci -Recurse -File | Select-Object Name | where {$_ -like "*.txt*"}
+3:$todos = gci -Recurse -File | where Name -like "*.txt*" | Select-Object Name, length 
+
+#formatar numeros
+# {} = tudo oq esta em chaves é para o powershehll entender que quero executar um código
+# $_ = variavel de iteração
+4:$todos = gci -Recurse -File | where Name -like "*.txt*" | Select-Object Name, {"{0:N2}KB" -f ($_.length / 1kb)} 
+
+# Limpando o código
+#5:$todos = gci -Recurse -File | where Name -like "*.txt*" | Select-Object Name, {"{0:N2}KB" -f ($_.length / 1kb)}
+
+$nameExpr = "Name"
+$lengthExpr =  {"{0:N2}KB" -f ($_.length / 1kb)}
+$params = ($nameExpr, $lengthExpr)
+gci -Recurse -File |
+	? Name -like "*txt*" |
+	select $params
+
+# Alterando o nome da coluna Name e tmanho em kb
+
+# @{} = cria uma hashtable um tipo de dao que precisa de uma chave e valor
+# @{} | Get-Member
+#.add = adiciona o nome da coluna
+#primeiro qual o rotulo depois a expressão
+
+$nameExpr = @{}
+$nameExpr.add("Label", "Nome")
+$nameExpr.add("Expression", {$_.Name})
+
+$lengthExpr = @{}
+$lengthExpr.add("Label", "Tamanho")
+$lengthExpr.add("Expression", {"{0:N2}KB" -f ($_.length / 1kb)})
+
+$nameExpr = @{
+	Label="NOME";
+	Expression={$_.Name}
+}
+
+$lengthExpr = @{
+	Label="TAMANHO";
+	Expression={"{0:N2}KB" -f ($_.length / 1kb)}
+}
+
+$params = ($nameExpr, $lengthExpr)
+gci -Recurse -File |
+	? Name -like "*txt*" |
+	select $params
+######################
+    gci -recurse -file |
+        ? Name -like "*.exe" |
+        select `
+            Name, `
+            { "{0:N2}MB" -f ($_.Length / 1MB) }

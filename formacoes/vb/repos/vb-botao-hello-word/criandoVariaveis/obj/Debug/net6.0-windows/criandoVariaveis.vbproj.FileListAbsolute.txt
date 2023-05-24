@@ -1,0 +1,17 @@
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\bin\Debug\net6.0-windows\criandoVariaveis.exe
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\bin\Debug\net6.0-windows\criandoVariaveis.deps.json
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\bin\Debug\net6.0-windows\criandoVariaveis.runtimeconfig.json
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\bin\Debug\net6.0-windows\criandoVariaveis.dll
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\bin\Debug\net6.0-windows\criandoVariaveis.pdb
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\obj\Debug\net6.0-windows\criandoVariaveis.vbproj.AssemblyReference.cache
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\obj\Debug\net6.0-windows\criandoVariaveis.vbproj.GenerateResource.cache
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\obj\Debug\net6.0-windows\criandoVariaveis.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\obj\Debug\net6.0-windows\criandoVariaveis.AssemblyInfoInputs.cache
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\obj\Debug\net6.0-windows\criandoVariaveis.AssemblyInfo.vb
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\obj\Debug\net6.0-windows\criandoVariaveis.vbproj.CoreCompileInputs.cache
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\obj\Debug\net6.0-windows\criandoVariaveis.dll
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\obj\Debug\net6.0-windows\refint\criandoVariaveis.dll
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\obj\Debug\net6.0-windows\criandoVariaveis.pdb
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\obj\Debug\net6.0-windows\criandoVariaveis.genruntimeconfig.cache
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\obj\Debug\net6.0-windows\ref\criandoVariaveis.dll
+C:\Users\Gusta\source\repos\vb-botao-hello-word\criandoVariaveis\obj\Debug\net6.0-windows\criandoVariaveis.frm_CriandoVariaveis.resources

@@ -1,0 +1,24 @@
+# Criar Profile de tds usuários no powerShell
+$Profile.AllUsersAllHosts
+
+# Criar Profile de um usuario no powerShell
+: comando $profile mostra onde esta a pasta do perfil se caso não existir fazer uma.
+dentro do arquivo colocar as configurações que desejar para o perfil no powerShel
+
+# Politicas de segurança do PowerShell
+:get-help about_execution_policies
+
+# Qual a politica da maquina?
+:Get-ExecutionPolicy
+
+# Alterar politica para executar arquivos ps1
+:Set-ExecutionPolicy Unrestricted
+:Set-ExecutionPolicy Restricted
+
+# get-member
+<#
+	O PowerShell possui um comando que se chama Get-Member. O Get-Member irá visitar esse objeto,
+	e listará todos as propriedades para nós. Vamos testar?
+	Passaremos o Get-Member como argumento através do | (pipe) no path:
+	PS C:\scripts\servers> echo $env:path | Get-Member
+#>

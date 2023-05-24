@@ -1,0 +1,24 @@
+function Install-WindowsFeatureInServers {
+    param(
+        [String[]] $computers,
+        [String] $featureName
+    )
+
+    # ScriptBlock a ser executado por cada Job!
+    # Note que com o PowerShell, podemos guardar uma variável de ScriptBlock
+    # com dependência de parâmetros, como fazemos a seguir:    
+    $jobScriptBlock = {
+        param(
+            [String] $computerName,
+            [String] $featureName
+        )
+    # Chamada ao cmdlet do módulo Remote Server Administration Tools (RSAT)
+        Install-WindowsFeature -ComputerName $computerName -Name $featureName
+    }
+
+    $computers | ForEach-Object {
+    # Iniciamos o Job com a função $jobScriptBlock passando por argumento
+    # a variável de iteração representando um computador e o nome da Feature
+        Start-Job -Name "JOB_$_" -ScriptBlock $jobScriptBlock -ArgumentList ($_, $featureName)
+    }
+}

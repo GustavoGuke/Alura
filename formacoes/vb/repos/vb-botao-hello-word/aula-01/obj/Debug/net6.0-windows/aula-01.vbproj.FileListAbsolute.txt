@@ -1,0 +1,17 @@
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\bin\Debug\net6.0-windows\aula-01.exe
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\bin\Debug\net6.0-windows\aula-01.deps.json
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\bin\Debug\net6.0-windows\aula-01.runtimeconfig.json
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\bin\Debug\net6.0-windows\aula-01.dll
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\bin\Debug\net6.0-windows\aula-01.pdb
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\obj\Debug\net6.0-windows\aula-01.vbproj.AssemblyReference.cache
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\obj\Debug\net6.0-windows\aula-01.vbproj.GenerateResource.cache
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\obj\Debug\net6.0-windows\aula-01.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\obj\Debug\net6.0-windows\aula-01.AssemblyInfoInputs.cache
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\obj\Debug\net6.0-windows\aula-01.AssemblyInfo.vb
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\obj\Debug\net6.0-windows\aula-01.vbproj.CoreCompileInputs.cache
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\obj\Debug\net6.0-windows\aula-01.dll
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\obj\Debug\net6.0-windows\refint\aula-01.dll
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\obj\Debug\net6.0-windows\aula-01.pdb
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\obj\Debug\net6.0-windows\aula-01.genruntimeconfig.cache
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\obj\Debug\net6.0-windows\ref\aula-01.dll
+C:\Users\Gusta\source\repos\vb-botao-hello-word\aula-01\obj\Debug\net6.0-windows\aula_01.frm_TelaPrincipal.resources

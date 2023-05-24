@@ -1,0 +1,1 @@
+New-Alias rename Rename-Item echo "Olá, Guilherme!"
