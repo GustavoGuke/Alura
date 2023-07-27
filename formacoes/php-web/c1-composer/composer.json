@@ -1,0 +1,19 @@
+{
+    "name": "alura/buscador-cursos",
+    "description": "Projeto curso alura - php-web composer",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Alura\\BuscadorCursos\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gustavo Silva",
+            "email": "gustavo.athenas13@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.7"
+    }
+}
