@@ -7,6 +7,8 @@ require_once 'src/Modelo/Contas/Titular.php';
 require_once 'src/Modelo/CPF.php';
 require_once 'src/Modelo/Endereco.php';
 require_once 'src/Modelo/Funcionarios/Funcionario.php';
+require_once 'src/Modelo/Funcionarios/Gerente.php';
+require_once 'src/Modelo/Funcionarios/Diretor.php';
 require_once 'src/Servicos/BonificacaoFunc.php';
 
 
@@ -28,6 +30,8 @@ use Alura\Banco\Modelo\Pessoa;
 use Alura\Banco\Modelo\CPF;
 use Alura\Banco\Modelo\Endereco;
 use Alura\Banco\Modelo\Funcionarios\Funcionario;
+use Alura\Banco\Modelo\Funcionarios\Gerente;
+use Alura\Banco\Modelo\Funcionarios\Diretor;
 use Alura\Banco\Modelo\Contas\Conta;
 use Alura\Banco\Modelo\Contas\ContaCorrente;
 use Alura\Banco\Modelo\Contas\ContaPoupanca;
@@ -64,18 +68,18 @@ $primeiraContaPoup->saca(300); // isso é ok
 
 
 // Conta Funcionario
-$newFuncionario = new Funcionario(new CPF('123.456.789-10'),'Vinicius',"gerente",100);
-$newFuncionario2 = new Funcionario(new CPF('123.456.789-10'),'Gustavo',"assitente de TI n2",200);
+$newFuncionarioGerente = new Gerente(new CPF('123.456.789-10'),'Vinicius',"gerente",100);
+$newFuncionarioDiretor = new Diretor(new CPF('123.456.789-10'),'Gustavo',"Diretor",200);
 //$newFuncionario->alterarNome("teste");
-echo $newFuncionario2->recuperaCargo() . PHP_EOL;
+echo $newFuncionarioGerente->recuperaCargo() . PHP_EOL;
 
-echo $newFuncionario2->recuperaNome() . PHP_EOL;
-$newFuncionario->calculaBonificacao() . PHP_EOL;
-echo $newFuncionario2->recuperaSalario() .  PHP_EOL;
+// echo $newFuncionario2->recuperaNome() . PHP_EOL;
+echo $newFuncionarioGerente->calculaBonificacao() . PHP_EOL;
+echo $newFuncionarioGerente->recuperaSalario() .  PHP_EOL;
 
 $mostrarBonificaco = new BonificacaoFunc();
-$mostrarBonificaco->somaBonificacao($newFuncionario);
-$mostrarBonificaco->somaBonificacao($newFuncionario2);
+$mostrarBonificaco->somaBonificacao($newFuncionarioGerente);
+// $mostrarBonificaco->somaBonificacao($newFuncionario2);
 echo $mostrarBonificaco->verTotalBoni();
 
 

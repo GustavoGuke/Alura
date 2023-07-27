@@ -1,5 +1,7 @@
 <?php
+
 namespace Alura\Banco\Modelo;
+
 class Endereco
 {
     private string $cidade;
@@ -13,7 +15,11 @@ class Endereco
         $this->bairro = $bairro;
         $this->rua = $rua;
         $this->numero = $numero;
+    }
 
+    public function __toString(): string
+    {
+        return "{$this->rua}, {$this->numero}, {$this->bairro}, {$this->cidade}";
     }
 
     public function recuperaCidade(): string

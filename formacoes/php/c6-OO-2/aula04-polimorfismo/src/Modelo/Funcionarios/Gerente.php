@@ -5,6 +5,6 @@ class Gerente extends Funcionario
 {
     public function calculaBonificacao(): float
     {
-        return $this->recuperaSalario();
+        return $this->recuperaSalario() * 2;
     }
 }
