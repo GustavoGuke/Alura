@@ -1,0 +1,17 @@
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\bin\Debug\net6.0-windows\curso2-OO.exe
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\bin\Debug\net6.0-windows\curso2-OO.deps.json
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\bin\Debug\net6.0-windows\curso2-OO.runtimeconfig.json
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\bin\Debug\net6.0-windows\curso2-OO.dll
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\bin\Debug\net6.0-windows\curso2-OO.pdb
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\obj\Debug\net6.0-windows\curso2-OO.vbproj.AssemblyReference.cache
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\obj\Debug\net6.0-windows\curso2-OO.vbproj.GenerateResource.cache
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\obj\Debug\net6.0-windows\curso2-OO.GeneratedMSBuildEditorConfig.editorconfig
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\obj\Debug\net6.0-windows\curso2-OO.AssemblyInfoInputs.cache
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\obj\Debug\net6.0-windows\curso2-OO.AssemblyInfo.vb
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\obj\Debug\net6.0-windows\curso2-OO.vbproj.CoreCompileInputs.cache
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\obj\Debug\net6.0-windows\curso2-OO.dll
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\obj\Debug\net6.0-windows\refint\curso2-OO.dll
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\obj\Debug\net6.0-windows\curso2-OO.pdb
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\obj\Debug\net6.0-windows\curso2-OO.genruntimeconfig.cache
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\obj\Debug\net6.0-windows\ref\curso2-OO.dll
+C:\cursos\alura\formacoes\vb\curso2-OO\curso2-OO\obj\Debug\net6.0-windows\curso2_OO.frm_principal.resources
