@@ -7,5 +7,7 @@ const router = Router()
 router.get('/pessoas', PessoaController.pegaTodasAsPessoas)
 router.get('/pessoas/:id', PessoaController.pegaUmaPessoa)
 router.post('/pessoas', PessoaController.criaNovaPessoa)
+router.put('/pessoas/:id', PessoaController.atualizaPessoa)
+router.delete('/pessoas/:id', PessoaController.apagarPessoa)
 
 module.exports = router
