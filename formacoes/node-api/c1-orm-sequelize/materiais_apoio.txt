@@ -33,8 +33,12 @@ sequelize.define('User', {
 
 CRIAR O ARQUIVO SEED - SEED POPULAR O BANCO DE DADOS
 npx sequelize-cli seed:generate --name demo-pessoa
+npx sequelize-cli seed:generate --name demo-nivel
+npx sequelize-cli seed:generate --name demo-turmas
+npx sequelize-cli seed:generate --name demo-matriculas
 
 ENVIAR DADOS PARA O BANCO DE DADOS
+await queryInterface.bulkInsert('People', [], {});
 npx sequelize-cli db:seed:all
 
 
