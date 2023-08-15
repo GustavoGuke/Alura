@@ -2,19 +2,19 @@ import './Formulario.css'
 import CampoTexto from "../CampoTexto/CampoTexto"
 import { ListaSuspensa } from '../ListaSuspensa/ListaSuspensa'
 import { Botao } from '../Botao/Botao'
+import { useState } from 'react'
 
-export const Formulario = () => {
 
-    let listaDeItens = [
-        'Programação',
-        'Front-End',
-        'Mobile',
-        'Banco de Dados'
-    ]
+export const Formulario = ({novoColaborador, listaDeItens}) => {
+
+    const [nome, setNome] = useState('')
+    const [cargo, setCargo] = useState('')
+    const [imagem, setImagem] = useState('')
+    const [listaSuspensa, setListaSuspensa] = useState('Programação')
 
     const handleSalvar = (e) => {
         e.preventDefault()
-        console.log(e)
+        novoColaborador({nome, cargo, imagem, listaSuspensa})
     }
     return (
         <section className='formulario'>
@@ -24,17 +24,28 @@ export const Formulario = () => {
                     label="NOME"
                     placeholder="Digite seu Nome"
                     obrigatorio={true}
+                    valor={nome}
+                    alterado={valor => setNome(valor)}
                 />
                 <CampoTexto
                     label="CARGO"
                     placeholder="Digite seu Cargo"
                     obrigatorio={true}
+                    valor={cargo}
+                    alterado={valor => setCargo(valor)}
                 />
                 <CampoTexto
                     label="IMAGEM"
                     placeholder="coloque sua imagem"
+                    valor={imagem}
+                    alterado={valor => setImagem(valor)}
                 />
-                <ListaSuspensa label="TIME" itens={listaDeItens} />
+                <ListaSuspensa 
+                label="TIME" 
+                itens={listaDeItens}
+                valor={listaSuspensa}
+                alterado={valor => setListaSuspensa(valor)}
+                />
                 <Botao texto="CRIAR CARD" />
             </form>
         </section>
