@@ -5,7 +5,7 @@ import { Botao } from '../Botao/Botao'
 import { useState } from 'react'
 
 
-export const Formulario = ({novoColaborador, listaDeItens}) => {
+export const Formulario = ({novoColaborador, listaDeTime}) => {
 
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
@@ -14,7 +14,7 @@ export const Formulario = ({novoColaborador, listaDeItens}) => {
 
     const handleSalvar = (e) => {
         e.preventDefault()
-        novoColaborador({nome, cargo, imagem, listaSuspensa})
+        novoColaborador({nome, cargo, imagem})
     }
     return (
         <section className='formulario'>
@@ -42,7 +42,7 @@ export const Formulario = ({novoColaborador, listaDeItens}) => {
                 />
                 <ListaSuspensa 
                 label="TIME" 
-                itens={listaDeItens}
+                itens={listaDeTime}
                 valor={listaSuspensa}
                 alterado={valor => setListaSuspensa(valor)}
                 />
