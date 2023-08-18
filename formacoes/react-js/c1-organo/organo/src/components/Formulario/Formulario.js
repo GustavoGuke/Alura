@@ -14,7 +14,10 @@ export const Formulario = ({novoColaborador, listaDeTime}) => {
 
     const handleSalvar = (e) => {
         e.preventDefault()
-        novoColaborador({nome, cargo, imagem})
+        novoColaborador({nome, cargo, imagem, listaSuspensa})
+        setNome('')
+        setCargo('')
+        setImagem('')
     }
     return (
         <section className='formulario'>

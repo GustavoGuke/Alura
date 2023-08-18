@@ -40,11 +40,12 @@ function App() {
       <Formulario
         listaDeTime={times.map(time => time.nome)}
         novoColaborador={colaborador => handleNovoColaborador(colaborador)} />
-      {times.map(time => <Time 
-                              key={time.nome} 
-                              escolas={time.nome} 
-                              corPrimaria={time.corPrimaria}
-                              corSecundaria={time.corSecundaria}/>)}
+      {times.map(time => <Time
+        key={time.nome}
+        escolas={time.nome}
+        corPrimaria={time.corPrimaria}
+        corSecundaria={time.corSecundaria} 
+        colaboradores={colaboradores.filter( colaborador => colaborador.listaSuspensa === time.nome)}/>)}
     </div>
   );
 }
