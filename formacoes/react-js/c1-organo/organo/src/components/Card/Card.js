@@ -2,10 +2,11 @@ import  './Card.css'
 
 import React from 'react';
 
-const Card = ({nome, cargo, imagem}) => {
+const Card = ({ nome, cargo, imagem, cordFundo }) => {
+    const css = { backgroundColor: cordFundo }
     return (
-        <div className='colaborador'> 
-            <div className='cabecalho'>
+        <div className='colaborador' > 
+            <div className='cabecalho' style={css}>
                 <img src={imagem} alt=''/>
             </div>
             <div className='rodape'>

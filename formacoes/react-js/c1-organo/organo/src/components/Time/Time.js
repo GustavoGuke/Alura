@@ -11,7 +11,7 @@ const Time = ({ escolas, corSecundaria, corPrimaria, colaboradores }) => {
       <section className='time' style={css}>
         <h3 style={border}>{escolas}</h3>
         <div className='colaboradores'>
-          {colaboradores.map(colaborador => <Card key={colaborador.nome} nome={colaborador.nome} cargo={colaborador.cargo} imagem={colaborador.imagem} />)}
+          {colaboradores.map(colaborador => <Card cordFundo={corPrimaria} key={colaborador.nome} nome={colaborador.nome} cargo={colaborador.cargo} imagem={colaborador.imagem} />)}
         </div>
       </section>
       : ''
