@@ -25,7 +25,9 @@ const Time = (props) => {
                             nome={colaborador.nome}
                             cargo={colaborador.cargo}
                             imagem={colaborador.imagem}
-                            aoDeletar={props.aoDeletar} />
+                            id={colaborador.id}
+                            aoDeletar={props.aoDeletar}
+                            />
                     })}
                 </div>
             </section>

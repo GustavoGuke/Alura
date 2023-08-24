@@ -56,12 +56,12 @@ function App() {
   const aoNovoColaboradorAdicionado = (colaborador) => {
     //debugger
     // testar enviar id para o colaborador igual função aocriartime
-    setColaboradores([...colaboradores, colaborador])
+    setColaboradores([...colaboradores, {...colaborador,id:uuidv4()}])
   }
 
 
-  const deletarColaborador = (nome) => {
-    let del = colaboradores.filter(colaborador => colaborador.nome !== nome)
+  const deletarColaborador = (id) => {
+    let del = colaboradores.filter(colaborador => colaborador.id !== id)
     setColaboradores(del) 
   }
 
@@ -76,8 +76,8 @@ function App() {
 
   const aoCriarTime = (novoTime) => {
     setTimes([...times, {
-      ...novoTime, corPrimaria: '#FF8A29',
-      corSecundaria: '#FFEEDF',id:uuidv4()}])
+      ...novoTime,
+      id:uuidv4()}])
   }
   return (
     <div className="App">

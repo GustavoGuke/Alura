@@ -21,7 +21,6 @@ const Formulario = (props) => {
             cargo,
             imagem,
             time,
-            //id: uuidv4()
         })
         setNome('')
         setCargo('')
@@ -33,7 +32,7 @@ const Formulario = (props) => {
         evento.preventDefault()
         props.aoCriarTime({
             nome:novoTime,
-            
+            corPrimaria: corTimeNovo,
         })
     }
 
@@ -73,7 +72,7 @@ const Formulario = (props) => {
                 </Botao>
             </form>
             <form onSubmit={criarTime}>
-                <h2>Preencha os dados para criar o card do colaborador</h2>
+                <h2>Preencha os dados para criar Novo Time</h2>
                 <CampoTexto 
                     obrigatorio
                     label="Time"
