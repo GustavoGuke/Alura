@@ -81,6 +81,7 @@ const Formulario = (props) => {
                     aoAlterado={valor => setNovoTime(valor)}
                 />
                 <CampoTexto
+                    type='color'
                     obrigatorio={false}
                     label="Cor"
                     placeholder="Digite a cor do time" 
