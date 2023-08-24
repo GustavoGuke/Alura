@@ -55,8 +55,10 @@ function App() {
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
     //debugger
+    // testar enviar id para o colaborador igual função aocriartime
     setColaboradores([...colaboradores, colaborador])
   }
+
 
   const deletarColaborador = (nome) => {
     let del = colaboradores.filter(colaborador => colaborador.nome !== nome)
@@ -71,10 +73,19 @@ function App() {
       return time
     }))
   }
+
+  const aoCriarTime = (novoTime) => {
+    setTimes([...times, {
+      ...novoTime, corPrimaria: '#FF8A29',
+      corSecundaria: '#FFEEDF',id:uuidv4()}])
+  }
   return (
     <div className="App">
       <Banner />
-      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
+      <Formulario 
+      aoCriarTime={aoCriarTime}
+      times={times.map(time => time.nome)} 
+      aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
 
       {times.map((time) => <Time 
         id = {time.id}

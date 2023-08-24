@@ -3,7 +3,7 @@ import Botao from '../Botao'
 import CampoTexto from '../CampoTexto'
 import ListaSuspensa from '../ListaSuspensa'
 import './Formulario.css'
-import { v4 as uuidv4 } from 'uuid';
+//import { v4 as uuidv4 } from 'uuid';
 
 const Formulario = (props) => {
 
@@ -11,6 +11,8 @@ const Formulario = (props) => {
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
+    const [novoTime, setNovoTime] = useState('')
+    const [corTimeNovo, setCorTimeNovo] = useState('')
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
@@ -19,12 +21,20 @@ const Formulario = (props) => {
             cargo,
             imagem,
             time,
-            id: uuidv4()
+            //id: uuidv4()
         })
         setNome('')
         setCargo('')
         setImagem('')
         setTime('')
+    }
+
+    const criarTime = (evento) => {
+        evento.preventDefault()
+        props.aoCriarTime({
+            nome:novoTime,
+            
+        })
     }
 
     return (
@@ -60,6 +70,26 @@ const Formulario = (props) => {
                 />
                 <Botao>
                     Criar Card
+                </Botao>
+            </form>
+            <form onSubmit={criarTime}>
+                <h2>Preencha os dados para criar o card do colaborador</h2>
+                <CampoTexto 
+                    obrigatorio
+                    label="Time"
+                    placeholder="Digite o nome do time" 
+                    valor={novoTime}
+                    aoAlterado={valor => setNovoTime(valor)}
+                />
+                <CampoTexto
+                    obrigatorio={false}
+                    label="Cor"
+                    placeholder="Digite a cor do time" 
+                    valor={corTimeNovo}
+                    aoAlterado={valor => setCorTimeNovo(valor)}
+                />
+                <Botao>
+                    Criar Time
                 </Botao>
             </form>
         </section>
