@@ -56,18 +56,18 @@ function App() {
   const aoNovoColaboradorAdicionado = (colaborador) => {
     //debugger
     // testar enviar id para o colaborador igual função aocriartime
-    setColaboradores([...colaboradores, {...colaborador,id:uuidv4()}])
+    setColaboradores([...colaboradores, { ...colaborador, favorito: false, id: uuidv4() }])
   }
 
 
   const deletarColaborador = (id) => {
     let del = colaboradores.filter(colaborador => colaborador.id !== id)
-    setColaboradores(del) 
+    setColaboradores(del)
   }
 
   const mudarCorTime = (cor, id) => {
     setTimes(times.map(time => {
-      if(time.id === id){
+      if (time.id === id) {
         time.corPrimaria = cor
       }
       return time
@@ -77,26 +77,36 @@ function App() {
   const aoCriarTime = (novoTime) => {
     setTimes([...times, {
       ...novoTime,
-      id:uuidv4()}])
+      id: uuidv4()
+    }])
+  }
+
+  const favoritarColaborador = (id) => {
+    setColaboradores(colaboradores.map(colaborador => {
+      if(colaborador.id === id) colaborador.favorito = !colaborador.favorito
+      return colaborador
+    }))
   }
   return (
     <div className="App">
       <Banner />
-      <Formulario 
-      aoCriarTime={aoCriarTime}
-      times={times.map(time => time.nome)} 
-      aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
+      <Formulario
+        aoCriarTime={aoCriarTime}
+        times={times.map(time => time.nome)}
+        aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} />
 
-      {times.map((time) => <Time 
-        id = {time.id}
-        key={time.nome} 
-        nome={time.nome} 
-        corPrimaria={time.corPrimaria} 
-        corSecundaria={time.corSecundaria} 
+      {times.map((time) => <Time
+        id={time.id}
+        key={time.nome}
+        nome={time.nome}
+        corPrimaria={time.corPrimaria}
+        corSecundaria={time.corSecundaria}
         colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
         aoDeletar={deletarColaborador}
+        aoFavoritar={favoritarColaborador}
         mudarCor={mudarCorTime}
-      />)}   
+
+      />)}
 
     </div>
   );
