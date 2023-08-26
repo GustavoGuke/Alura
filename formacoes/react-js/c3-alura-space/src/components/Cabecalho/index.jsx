@@ -1,12 +1,14 @@
-import React from 'react';
+import logo from '../../assets/logo.png'
+import search from '../../assets/search.png'
+import styles from './cabecalho.module.scss'
 
 const Cabecalho = () => {
     return (
-        <header>
-            <img src="" alt="logo Alura Space" />
-            <div>
-                <input type="text" placeholder='O que você procura'/>
-                <img src="" alt="Icone Lupa" />
+        <header className={styles.cabecalho}>
+            <img src={logo} alt="logo Alura Space" />
+            <div className={styles.cabecalho__container}>
+                <input className={styles.cabecalho__input} type="text" placeholder='O que você procura'/>
+                <img src={search} alt="Icone Lupa" />
             </div>
         </header>
     );
