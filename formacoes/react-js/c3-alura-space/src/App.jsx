@@ -1,5 +1,5 @@
 import './styles/estilosGlobais.scss';
-import PaginaInicial from "./paginas";
+import PaginaInicial from "./PaginaInicial";
 
 export default function App() {
 
