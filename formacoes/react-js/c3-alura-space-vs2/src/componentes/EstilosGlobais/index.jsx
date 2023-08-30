@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const EstilosGlobais = createGlobalStyle`
 
-    html {
+html {
   line-height: 1.15; 
   -webkit-text-size-adjust: 100%; 
 }

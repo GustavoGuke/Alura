@@ -14,7 +14,7 @@ const Populares = () => {
                     )
                 })}
             </ul>
-            <button>Ver mais fotos</button>
+            <button>Ver mais fotosFuncionalida</button>
         </aside>
     );
 }
