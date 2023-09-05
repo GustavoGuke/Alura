@@ -4,6 +4,8 @@ import tagsJson from './tags.json'
 
 const TagContainer = styled.section`
     display: flex;
+    margin-top:50px;
+    gap:20px;
 `
 
 const ButtonTag = styled.button`
