@@ -27,11 +27,16 @@ const TituloTag = styled.h3`
     font-size: 24px;
     margin: 0;
 `
-const Tags = () => {
+const Tags = ({aoSelecionarTag}) => {
     return (
         <TagContainer>
             <TituloTag>Busque por Tags:</TituloTag>
-            {tagsJson.map(tag => <ButtonTag key={tag.id}>{tag.titulo}</ButtonTag>)}
+            {tagsJson.map(tag => <ButtonTag 
+            key={tag.id} 
+            onClick={() => aoSelecionarTag(tag.id)}
+            >
+                {tag.titulo}
+            </ButtonTag>)}
         </TagContainer>
     );
 }

@@ -60,10 +60,19 @@ function App() {
     }
     setFotosGaleria(fotosGaleria.map(fotoGaleria => {
       return {
-        ...fotoGaleria, 
+        ...fotoGaleria,
         favorita: fotoGaleria.id === foto.id ? !foto.favorita : fotoGaleria.favorita
       }
     }))
+  }
+
+  const aoSelecionarTag = (tag) => {
+    if(tag === 0){
+      setFotosGaleria(fotos)
+      return
+    }
+    const filtroPorTag = fotos.filter( fotoTag => fotoTag.tagId === tag)
+    setFotosGaleria(filtroPorTag)
   }
   return (
     <FundoGradiente>
@@ -76,10 +85,11 @@ function App() {
             <Banner
               backgroundImage={imagemBanner}
               texto="A galeria mais completa de fotos do espaço!" />
-            <Galeria 
-            fotos={fotosGaleria}
-            aoFotoSelecionada={foto => setFotoSelecionada(foto)}
-            aoFavoritar={ aoFavoritar} />
+            <Galeria
+              fotos={fotosGaleria}
+              aoFotoSelecionada={foto => setFotoSelecionada(foto)}
+              aoFavoritar={aoFavoritar}
+              aoSelecionarTag={aoSelecionarTag} />
           </ConteudoGaleria>
         </MainContainer>
       </AppContainer>
