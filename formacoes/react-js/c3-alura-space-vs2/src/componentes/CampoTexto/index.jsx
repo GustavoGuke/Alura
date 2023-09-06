@@ -1,5 +1,6 @@
 import { styled } from "styled-components"
 import search from './search.png'
+import { useState } from "react";
 
 const ContainerEstilizado = styled.div`
     position: relative;
@@ -28,10 +29,16 @@ const IconeLupa = styled.img`
     right: 10px;
 `;
 
-const CampoTexto = (props) => {
+const CampoTexto = ({aoBuscarFotoInput}) => {
+
+    const [buscarFoto, setBuscarFoto] = useState('')
+
+    const aoBuscarFoto = (e) => {
+        aoBuscarFotoInput(e.target.value)
+    }
     return (
         <ContainerEstilizado>
-            <CampoTextoEstilizado {...props} />
+            <CampoTextoEstilizado onChange={aoBuscarFoto}  />
             <IconeLupa src={search} style={{
                 width: 38,
                 height: 38

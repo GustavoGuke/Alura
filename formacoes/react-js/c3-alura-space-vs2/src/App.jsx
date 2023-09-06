@@ -74,11 +74,18 @@ function App() {
     const filtroPorTag = fotos.filter( fotoTag => fotoTag.tagId === tag)
     setFotosGaleria(filtroPorTag)
   }
+
+  const aoBuscarFotoInput = (input) => {
+    const filtroInput = fotos.filter( foto => {
+      return foto.titulo.toLocaleLowerCase().includes(input)
+    })
+    setFotosGaleria(filtroInput)
+  }
   return (
     <FundoGradiente>
       <EstilosGlobais />
       <AppContainer>
-        <Cabecalho />
+        <Cabecalho aoBuscarFotoInput={aoBuscarFotoInput}/>
         <MainContainer>
           <BarraLateral />
           <ConteudoGaleria>
