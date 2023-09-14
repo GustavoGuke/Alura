@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Inicio from "./routes/Inicio";
 import SobreMim from "./routes/SobreMim";
 import Menu from "./components/Menu";
+import Footer from "./components/Footer";
+
 
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
         <Route path="/sobremim" element={<SobreMim />} />
         <Route path="*" element={<div>Página não encontrada</div>} />
       </Routes>
+
+      <Footer/>
     </BrowserRouter>
   )
 }
