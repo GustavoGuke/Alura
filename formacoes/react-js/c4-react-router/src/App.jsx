@@ -3,6 +3,7 @@ import Inicio from "./routes/Inicio";
 import SobreMim from "./routes/SobreMim";
 import Menu from "./components/Menu";
 import Footer from "./components/Footer";
+import PaginaPrincipal from "./routes/PaginaPrincipal";
 
 
 
@@ -11,13 +12,17 @@ function App() {
   return (
     <BrowserRouter>
       <Menu />
+
       <Routes>
-        <Route path="/" element={<Inicio />} />
-        <Route path="/sobremim" element={<SobreMim />} />
+        <Route path="/" element={<PaginaPrincipal />}>
+          <Route index element={<Inicio />} />
+          <Route path="sobremim" element={<SobreMim />} />
+        </Route>
+
         <Route path="*" element={<div>Página não encontrada</div>} />
       </Routes>
 
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   )
 }
