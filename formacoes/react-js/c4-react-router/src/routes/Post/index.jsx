@@ -7,6 +7,9 @@ import './Post.css'
 const Post = () => {
     const parametro = useParams()
     const postFiltro = posts.find(post => post.id === Number(parametro.id))
+    if(!postFiltro){
+       return <h1>Post não encontrado</h1>
+    }
     return (
         <PostModelo
             key={postFiltro.id}
@@ -21,5 +24,4 @@ const Post = () => {
         </PostModelo>
     );
 }
-
 export default Post;
