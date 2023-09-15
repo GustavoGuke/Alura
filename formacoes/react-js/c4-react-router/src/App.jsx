@@ -4,6 +4,7 @@ import SobreMim from "./routes/SobreMim";
 import Menu from "./components/Menu";
 import Footer from "./components/Footer";
 import PaginaPrincipal from "./routes/PaginaPrincipal";
+import Post from "./routes/Post";
 
 
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<PaginaPrincipal />}>
           <Route index element={<Inicio />} />
           <Route path="sobremim" element={<SobreMim />} />
+          <Route path="post/:id" element={<Post />} />
         </Route>
 
         <Route path="*" element={<div>Página não encontrada</div>} />
