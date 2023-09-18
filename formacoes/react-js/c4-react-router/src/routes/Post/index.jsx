@@ -3,12 +3,13 @@ import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import PostModelo from '../../components/PostModelo';
 import posts from '../../json/posts.json'
 import './Post.css'
+import NaoEncontrada from '../NaoEncontrada';
 
 const Post = () => {
     const parametro = useParams()
     const postFiltro = posts.find(post => post.id === Number(parametro.id))
     if(!postFiltro){
-       return <h1>Post não encontrado</h1>
+       return <NaoEncontrada />
     }
     return (
         <PostModelo

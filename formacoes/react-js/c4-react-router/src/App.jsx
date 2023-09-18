@@ -5,6 +5,7 @@ import Menu from "./components/Menu";
 import Footer from "./components/Footer";
 import PaginaPrincipal from "./routes/PaginaPrincipal";
 import Post from "./routes/Post";
+import NaoEncontrada from "./routes/NaoEncontrada";
 
 
 
@@ -21,7 +22,7 @@ function App() {
           <Route path="post/:id" element={<Post />} />
         </Route>
 
-        <Route path="*" element={<div>Página não encontrada</div>} />
+        <Route path="*" element={<NaoEncontrada />} />
       </Routes>
 
       <Footer />
