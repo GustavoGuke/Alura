@@ -5,7 +5,7 @@ import Botao from '../Botao';
 const PostCard = ({ post }) => {
     return (
 
-        <Link to={`post/${post.id}`}>
+        <Link to={`/post/${post.id}`}>
             <div className={styles.post}>
                 <img className={styles.capa} src={`/posts/${post.id}/capa.png`} alt="" />
 
