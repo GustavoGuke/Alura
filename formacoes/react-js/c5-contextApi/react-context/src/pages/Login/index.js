@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { Button } from '@material-ui/core';
 import {
   Container,
@@ -10,7 +11,13 @@ import {
   InputAdornment
 } from '@material-ui/core';
 
-function Login() {
+function Login({ nome, setNome, saldo, setSaldo }) {
+  const navegar = useNavigate()
+
+
+  // const aoColocarDados = () => {
+  //   console.log(nome, saldo)
+  // }
   return (
     <Container>
       <Titulo>
@@ -21,6 +28,8 @@ function Login() {
           Nome
         </InputLabel>
         <Input
+          value={nome}
+          onChange={evento => setNome(evento.target.value)}
           type="text"
         />
       </InputContainer>
@@ -29,6 +38,8 @@ function Login() {
           Saldo
         </InputLabel>
         <Input
+          value={saldo}
+          onChange={evento => setSaldo(evento.target.value)}
           type="number"
           startAdornment={
             <InputAdornment position="start">
@@ -38,6 +49,7 @@ function Login() {
         />
       </InputContainer>
       <Button
+        onClick={() => navegar("/Feira")}
         variant="contained"
         color="primary"
       >
