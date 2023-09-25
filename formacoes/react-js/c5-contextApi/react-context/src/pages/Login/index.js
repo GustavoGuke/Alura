@@ -10,16 +10,26 @@ import {
   InputLabel,
   InputAdornment
 } from '@material-ui/core';
+import { UserContext } from 'common/context/Usuario';
+import { useContext } from 'react';
 
-function Login({ nome, setNome, saldo, setSaldo }) {
+
+
+function Login() {
   const navegar = useNavigate()
+  const User = useContext(UserContext)
 
-
-  // const aoColocarDados = () => {
-  //   console.log(nome, saldo)
-  // }
+  const aoColocarDados = () => {
+    if(!User.nome && !User.saldo){
+     return
+    } else {
+       navegar("/Feira")
+    }
+  
+  }
   return (
     <Container>
+
       <Titulo>
         Insira o seu nome
       </Titulo>
@@ -28,33 +38,30 @@ function Login({ nome, setNome, saldo, setSaldo }) {
           Nome
         </InputLabel>
         <Input
-          value={nome}
-          onChange={evento => setNome(evento.target.value)}
-          type="text"
-        />
+          value={User.nome}
+          onChange={evento => User.setNome(evento.target.value)}
+          type="text" />
       </InputContainer>
       <InputContainer>
         <InputLabel>
           Saldo
         </InputLabel>
         <Input
-          value={saldo}
-          onChange={evento => setSaldo(evento.target.value)}
+          value={User.saldo}
+          onChange={evento => User.setSaldo(evento.target.value)}
           type="number"
-          startAdornment={
-            <InputAdornment position="start">
-              R$
-            </InputAdornment>
-          }
-        />
+          startAdornment={<InputAdornment position="start">
+            R$
+          </InputAdornment>} />
       </InputContainer>
       <Button
-        onClick={() => navegar("/Feira")}
+        onClick={aoColocarDados}
         variant="contained"
         color="primary"
       >
         Avançar
       </Button>
+
     </Container>
   )
 };

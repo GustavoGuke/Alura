@@ -1,20 +1,23 @@
 import Carrinho from "pages/Carrinho";
 import Feira from "pages/Feira";
 import Login from "pages/Login";
-import { useState } from "react";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { UserProvider } from "common/context/Usuario";
+import { CarrinhoProvider } from "common/context/Carrinho";
+
 
 const Router = () => {
-    const [nome, setNome] = useState('')
-    const [saldo, setSaldo] = useState(0)
 
     return (
         <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Login nome={nome} setNome={setNome} saldo={saldo} setSaldo={setSaldo}/>} />
-                <Route path="/feira" element={<Feira />} />
-                <Route path="/carrinho" element={<Carrinho />}/>
-            </Routes>
+            <UserProvider>
+                <Routes>
+                    <Route path="/" element={<Login />} />
+                    <Route path="/feira" element={<CarrinhoProvider><Feira /></CarrinhoProvider>} />
+                    <Route path="/carrinho" element={<Carrinho />} />
+                </Routes>
+            </UserProvider>
         </BrowserRouter>
     );
 }
