@@ -12,11 +12,13 @@ const Router = () => {
     return (
         <BrowserRouter>
             <UserProvider>
-                <Routes>
-                    <Route path="/" element={<Login />} />
-                    <Route path="/feira" element={<CarrinhoProvider><Feira /></CarrinhoProvider>} />
-                    <Route path="/carrinho" element={<Carrinho />} />
-                </Routes>
+                <CarrinhoProvider>
+                    <Routes>
+                        <Route path="/" element={<Login />} />
+                        <Route path="/feira" element={<Feira />} />
+                        <Route path="/carrinho" element={<Carrinho />} />
+                    </Routes>
+                </CarrinhoProvider>
             </UserProvider>
         </BrowserRouter>
     );

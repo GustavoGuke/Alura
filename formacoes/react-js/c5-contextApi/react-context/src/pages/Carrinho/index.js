@@ -1,10 +1,21 @@
 import { Button, Snackbar, InputLabel } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Voltar, TotalContainer, PagamentoContainer} from './styles';
+import { UseCarrinhoContext } from 'common/context/Carrinho';
+import Produto from 'components/Produto';
 
 function Carrinho() {
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [valor, setvalor] = useState()
+  const {carrinho} = UseCarrinhoContext()
+
+
+  useEffect(() => {
+    const testeDeValor = carrinho.reduce((contador, produtos) => contador + produtos.valor, 0)
+    setvalor(testeDeValor)
+  },[carrinho, setvalor])
+  
   return (
     <Container>
       <Voltar />
@@ -17,7 +28,7 @@ function Carrinho() {
       <TotalContainer>
           <div>
             <h2>Total no Carrinho: </h2>
-            <span>R$ </span>
+            <span>R$ {valor}</span>
           </div>
           <div>
             <h2> Saldo: </h2>
@@ -37,6 +48,10 @@ function Carrinho() {
       >
          Comprar
        </Button>
+
+       {carrinho.map( produtos => (
+        <Produto {...produtos} key={produtos.id}/>
+       ))}
         <Snackbar
           anchorOrigin={
             { 
