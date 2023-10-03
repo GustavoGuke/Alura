@@ -1,20 +1,21 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 export const CarrinhoContext = createContext()
 CarrinhoContext.displayName = "Carrinho"
 
-export const CarrinhoProvider = ({children}) => {
-    const [carrinho, setCarrinho] = useState([])
-    return (
-        <CarrinhoContext.Provider value={{carrinho, setCarrinho}}>
-            {children}
-        </CarrinhoContext.Provider>
-    )
+export const CarrinhoProvider = ({ children }) => {
+  const [carrinho, setCarrinho] = useState([])
+  const [quantidadeProduto, setQuantidadeProduto] = useState(0)
+  return (
+    <CarrinhoContext.Provider value={{ carrinho, setCarrinho, quantidadeProduto, setQuantidadeProduto }}>
+      {children}
+    </CarrinhoContext.Provider>
+  )
 }
 
 export const UseCarrinhoContext = () => {
-    const { carrinho, setCarrinho } = useContext(CarrinhoContext)
-    //const [produtoNoCarrinho, setProdutoNoCarrinho] = useState(0)
+  const { carrinho, setCarrinho, quantidadeProduto, setQuantidadeProduto } = useContext(CarrinhoContext)
+  //const [produtoNoCarrinho, setProdutoNoCarrinho] = useState(0)
 
   const mudarQuantidade = (id, quantidade) => {
     return carrinho.map(itemCarrinho => {
@@ -39,10 +40,10 @@ export const UseCarrinhoContext = () => {
   }
 
   const aoRemoverItem = (id) => {
-    const produto = carrinho.find( itemCarrinho => itemCarrinho.id === id)
+    const produto = carrinho.find(itemCarrinho => itemCarrinho.id === id)
     const ultimoItem = produto.quantidade === 1
-    if(ultimoItem){
-      return setCarrinho( carrinhoAnterior => carrinhoAnterior.filter( item => {
+    if (ultimoItem) {
+      return setCarrinho(carrinhoAnterior => carrinhoAnterior.filter(item => {
         return item.id !== id
       }))
     }
@@ -54,7 +55,12 @@ export const UseCarrinhoContext = () => {
     // }))
   }
 
-    return {
-        carrinho,setCarrinho,aoAdicionarItem, aoRemoverItem
-    }
+  useEffect(() => {
+    const novaQuantidadeProduto = carrinho.reduce((contador, produto) => contador + produto.quantidade, 0)
+    setQuantidadeProduto(novaQuantidadeProduto)
+  }, [carrinho, setQuantidadeProduto])
+
+  return {
+    carrinho, setCarrinho, aoAdicionarItem, aoRemoverItem, quantidadeProduto, setQuantidadeProduto
+  }
 }

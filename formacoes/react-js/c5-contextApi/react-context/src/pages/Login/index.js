@@ -20,12 +20,7 @@ function Login() {
   const User = useContext(UserContext)
 
   const aoColocarDados = () => {
-    if(!User.nome && !User.saldo){
-     return
-    } else {
-       navegar("/Feira")
-    }
-  
+    navegar("/Feira")
   }
   return (
     <Container>
@@ -55,6 +50,7 @@ function Login() {
           </InputAdornment>} />
       </InputContainer>
       <Button
+        disabled={User.nome.length < 4}
         onClick={aoColocarDados}
         variant="contained"
         color="primary"
