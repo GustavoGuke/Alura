@@ -14,7 +14,7 @@ function Produto({
   unidade
 }) {
 
-  const { carrinho, aoAdicionarItem} = UseCarrinhoContext()
+  const { carrinho, aoAdicionarItem, aoRemoverItem} = UseCarrinhoContext()
 
   const itemCarrinho = carrinho.find(item => item.id === id)
   
@@ -31,12 +31,16 @@ function Produto({
       </div>
       <div>
         <IconButton
+          disabled={!itemCarrinho}
           color="secondary"
+          onClick={() => aoRemoverItem(id)}
         >
           <RemoveIcon />
         </IconButton>
         {itemCarrinho?.quantidade || "0"}
-        <IconButton onClick={() => aoAdicionarItem({ nome, foto, id, valor })} >
+        <IconButton 
+        color="primary"
+        onClick={() => aoAdicionarItem({ nome, foto, id, valor })} >
           <AddIcon />
         </IconButton>
       </div>
