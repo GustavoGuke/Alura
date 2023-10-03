@@ -5,6 +5,7 @@ import Login from "pages/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { UserProvider } from "common/context/Usuario";
 import { CarrinhoProvider } from "common/context/Carrinho";
+import { PagamentoProvider } from "common/context/Pagamento";
 
 
 const Router = () => {
@@ -16,7 +17,7 @@ const Router = () => {
                     <Routes>
                         <Route path="/" element={<Login />} />
                         <Route path="/feira" element={<Feira />} />
-                        <Route path="/carrinho" element={<Carrinho />} />
+                        <Route path="/carrinho" element={<PagamentoProvider><Carrinho /></PagamentoProvider>} />
                     </Routes>
                 </CarrinhoProvider>
             </UserProvider>
