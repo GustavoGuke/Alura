@@ -8,12 +8,12 @@ export const PagamentoProvider = ({ children }) => {
     const tiposPagamento = [
         {
             nome: "Pix",
-            juros: 1,
+            juros: 0,
             id: 1
         },
         {
             nome: "Cartão de Crédito",
-            juros: 1,
+            juros: 1.5,
             id: 2
         },
         {
