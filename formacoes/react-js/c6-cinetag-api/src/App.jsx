@@ -1,11 +1,9 @@
-
+import AppRoutes from "./routes.jsx"
 
 function App() {
 
   return (
-    <>
-      cinetag
-    </>
+    <AppRoutes />
   )
 }
 
