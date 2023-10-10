@@ -1,9 +1,8 @@
+import Cabecalho from "../../components/Cabecalho";
 
 const Inicio = () => {
     return (
-        <div>
-            react router dom  Inicio
-        </div>
+        <Cabecalho />
     );
 }
 
