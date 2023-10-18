@@ -1,5 +1,5 @@
 import styles from './Cabecalho.module.css'
-import logo from '../../../public/imagens/logo.png'
+import logo from '@/assets/imagens/logo.png'
 import { Link } from 'react-router-dom';
 import CabecalhoLink from '../CabecalhoLink';
 
