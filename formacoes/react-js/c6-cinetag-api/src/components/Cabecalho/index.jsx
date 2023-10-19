@@ -12,7 +12,7 @@ const Cabecalho = () => {
 
         <nav>
             <CabecalhoLink url='./'>Home</CabecalhoLink>
-            <CabecalhoLink url='./Favoritos'>Favoritos</CabecalhoLink>
+            <CabecalhoLink url='/favoritos'>Favoritos</CabecalhoLink>
         </nav>
      </header>
      
