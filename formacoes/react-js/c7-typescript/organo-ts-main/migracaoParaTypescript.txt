@@ -11,3 +11,6 @@ O ReactElement é um objeto com um tipo e props.
 O ReactNode é um ReactElement, um ReactFragment, uma string, um number ou uma lista de ReactNodes, ou null, undefined ou boolean.
 
 O JSX.Element é um ReactElement com o tipo genérico para props e type sendo any. Ele existe para permitir que outras bibliotecas implementem o JSX de seu próprio jeito customizado.
+
+Projeto final link
+https://github.com/alura-cursos/organo-ts/tree/aula-5
