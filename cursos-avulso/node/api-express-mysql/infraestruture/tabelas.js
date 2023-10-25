@@ -14,6 +14,8 @@ class Tabelas {
             pet VARCHAR(20),
             servico VARCHAR(20) NOT NULL,
             status VARCHAR(20) NOT NULL,
+            data DATETIME NOT NULL,
+            datacriacao DATETIME NOT NULL,
             observacao TEXT, PRIMARY KEY(id) )
         `
 
