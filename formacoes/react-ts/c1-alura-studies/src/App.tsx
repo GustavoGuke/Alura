@@ -1,5 +1,6 @@
+import { Lista } from "./components/Lista"
 import { Formulario } from "./components/formulario"
-
+import "./index.css"
 function App() {
   
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <h1>Inicio do curso</h1>
       <Formulario />
+      <Lista />
     </>
   )
 }
