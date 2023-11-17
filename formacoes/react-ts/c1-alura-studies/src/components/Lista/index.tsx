@@ -1,21 +1,25 @@
+import { useState } from 'react'
 import { Item } from './Item'
 import style from './style.module.scss'
 
 export const Lista = () => {
 
-    const tarefas = [
-        {
-            tarefa: "React-ts",
-            tempo: "02:00:00"
-        },
-        {
-            tarefa: "C#",
-            tempo: "02:00:00"
-        }
-    ]
+    const [tarefas, setTarefas] = useState(
+        [
+            {
+                tarefa:"React",
+                tempo:"01:00"
+            }
+        ]
+        )
+    
+    const aoSelecionarEstudo = () => {
+        const novaTarefa = {tarefa:"c#", tempo:"02:00"}
+        setTarefas([...tarefas, novaTarefa])
+    }
     return (
         <aside className={style.listaTarefas}>
-            <h2>Estudos do dia</h2>
+            <h2 onClick={aoSelecionarEstudo}>Estudos do dia</h2>
             <ul>
                 {tarefas.map((tarefa, index) => (
                     <Item
