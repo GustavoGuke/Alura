@@ -1,4 +1,5 @@
-
+import { Item } from './Item'
+import style from './style.module.scss'
 
 export const Lista = () => {
 
@@ -13,14 +14,16 @@ export const Lista = () => {
         }
     ]
     return (
-        <aside>
+        <aside className={style.listaTarefas}>
             <h2>Estudos do dia</h2>
             <ul>
                 {tarefas.map((tarefa, index) => (
-                    <li key={index}>
-                        <h3>{tarefa.tarefa}</h3>
-                        <span>{tarefa.tempo}</span>
-                    </li>
+                    <Item
+                        key={index}
+                        tarefa={tarefa.tarefa}
+                        tempo={tarefa.tempo}
+                        // {...Item} jeito de desestruturar os itens e enviar 
+                    />
                 ))}
             </ul>
         </aside>

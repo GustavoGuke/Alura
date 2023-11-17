@@ -1,7 +1,7 @@
+import style from './style.module.scss'
 
-
-export const Botao = () => {
+export const Botao = ({children}: {children: string}) => {
   return (
-    <button>clique</button>
+    <button className={style.botao}>{children}</button>
   )
 }
