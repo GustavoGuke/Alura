@@ -1,25 +1,12 @@
-import { useState } from 'react'
 import { Item } from './Item'
 import style from './style.module.scss'
+import { ITarefa } from '../../types/Tarefas'
 
-export const Lista = () => {
+export const Lista = ({tarefas}: {tarefas: ITarefa[]}) => {
 
-    const [tarefas, setTarefas] = useState(
-        [
-            {
-                tarefa:"React",
-                tempo:"01:00"
-            }
-        ]
-        )
-    
-    const aoSelecionarEstudo = () => {
-        const novaTarefa = {tarefa:"c#", tempo:"02:00"}
-        setTarefas([...tarefas, novaTarefa])
-    }
     return (
         <aside className={style.listaTarefas}>
-            <h2 onClick={aoSelecionarEstudo}>Estudos do dia</h2>
+            <h2 >Estudos do dia</h2>
             <ul>
                 {tarefas.map((tarefa, index) => (
                     <Item
