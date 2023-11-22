@@ -8,12 +8,15 @@ export const Lista = ({tarefas}: {tarefas: ITarefa[]}) => {
         <aside className={style.listaTarefas}>
             <h2 >Estudos do dia</h2>
             <ul>
-                {tarefas.map((tarefa, index) => (
+                {tarefas.map((item, index) => (
                     <Item
-                        key={index}
-                        tarefa={tarefa.tarefa}
-                        tempo={tarefa.tempo}
-                        // {...Item} jeito de desestruturar os itens e enviar 
+                         key={index}
+                        // tarefa={tarefa.tarefa}
+                        // tempo={tarefa.tempo}
+                        // selecionado
+                        // completado
+                       
+                         {...item} //jeito de desestruturar os itens e enviar 
                     />
                 ))}
             </ul>

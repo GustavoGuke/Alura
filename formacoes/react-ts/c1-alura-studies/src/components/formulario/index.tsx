@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Botao } from "../Botao"
 import style from './style.module.scss'
 import { ITarefa } from "../../types/Tarefas"
+import { v4 as uuidv4 } from 'uuid'
 
 export const Formulario = ({ setTarefas }: { setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>> }) => {
   const [tarefa, setNovaTarefa] = useState('')
@@ -9,7 +10,14 @@ export const Formulario = ({ setTarefas }: { setTarefas: React.Dispatch<React.Se
 
   const aoAdicionarTarefa = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault()
-    setTarefas( oldTarefas => [...oldTarefas,{tarefa, tempo}] )
+    setTarefas(oldTarefas => [...oldTarefas,
+    {
+      tarefa,
+      tempo,
+      selecionado: false,
+      completado: false,
+      id: uuidv4()
+    }])
     setNovaTarefa('')
     setTempo('')
   }
