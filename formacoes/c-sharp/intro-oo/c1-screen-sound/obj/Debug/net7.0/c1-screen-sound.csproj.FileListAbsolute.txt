@@ -1,0 +1,14 @@
+C:\cursos\alura\formacoes\c-sharp\intro-oo\c1-screen-sound\bin\Debug\net7.0\c1-screen-sound.exe
+C:\cursos\alura\formacoes\c-sharp\intro-oo\c1-screen-sound\bin\Debug\net7.0\c1-screen-sound.deps.json
+C:\cursos\alura\formacoes\c-sharp\intro-oo\c1-screen-sound\bin\Debug\net7.0\c1-screen-sound.runtimeconfig.json
+C:\cursos\alura\formacoes\c-sharp\intro-oo\c1-screen-sound\bin\Debug\net7.0\c1-screen-sound.dll
+C:\cursos\alura\formacoes\c-sharp\intro-oo\c1-screen-sound\bin\Debug\net7.0\c1-screen-sound.pdb
+C:\cursos\alura\formacoes\c-sharp\intro-oo\c1-screen-sound\obj\Debug\net7.0\c1-screen-sound.GeneratedMSBuildEditorConfig.editorconfig
+C:\cursos\alura\formacoes\c-sharp\intro-oo\c1-screen-sound\obj\Debug\net7.0\c1-screen-sound.AssemblyInfoInputs.cache
+C:\cursos\alura\formacoes\c-sharp\intro-oo\c1-screen-sound\obj\Debug\net7.0\c1-screen-sound.AssemblyInfo.cs
+C:\cursos\alura\formacoes\c-sharp\intro-oo\c1-screen-sound\obj\Debug\net7.0\c1-screen-sound.csproj.CoreCompileInputs.cache
+C:\cursos\alura\formacoes\c-sharp\intro-oo\c1-screen-sound\obj\Debug\net7.0\c1-screen-sound.dll
+C:\cursos\alura\formacoes\c-sharp\intro-oo\c1-screen-sound\obj\Debug\net7.0\refint\c1-screen-sound.dll
+C:\cursos\alura\formacoes\c-sharp\intro-oo\c1-screen-sound\obj\Debug\net7.0\c1-screen-sound.pdb
+C:\cursos\alura\formacoes\c-sharp\intro-oo\c1-screen-sound\obj\Debug\net7.0\c1-screen-sound.genruntimeconfig.cache
+C:\cursos\alura\formacoes\c-sharp\intro-oo\c1-screen-sound\obj\Debug\net7.0\ref\c1-screen-sound.dll
