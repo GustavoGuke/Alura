@@ -1,7 +1,7 @@
 import style from './style.module.scss'
 
-export const Botao = ({children, type}: {children: string, type:"button" | "submit" | "reset"}) => {
+export const Botao = ({children, type, onClick}: {children: string, type:"button" | "submit" | "reset", onClick?:() => void}) => {
   return (
-    <button className={style.botao} type={type}>{children}</button>
+    <button onClick={onClick} className={style.botao} type={type}>{children}</button>
   )
 }

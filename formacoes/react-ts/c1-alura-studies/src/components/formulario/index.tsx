@@ -41,8 +41,12 @@ export const Formulario = ({ setTarefas }: { setTarefas: React.Dispatch<React.Se
             value={tempo}
             onChange={(e) => setTempo(e.target.value)}
             type="time"
+            step={1}
             id="tempo"
-            name="tempo" />
+            name="tempo"
+            min="00:00:00"
+            max="01:30:00"
+            required  />
         </div>
         <Botao type="submit"> Adicionar</Botao>
       </form>
