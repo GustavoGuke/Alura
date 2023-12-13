@@ -1,4 +1,4 @@
-import { StatusBar, SafeAreaView,  StyleSheet, Text, View } from 'react-native';
+import { StatusBar, SafeAreaView} from 'react-native';
 
 import Tela from './src/components/Tela';
 
