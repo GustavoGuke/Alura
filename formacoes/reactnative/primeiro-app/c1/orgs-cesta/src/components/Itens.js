@@ -1,16 +1,18 @@
 import React from 'react'
 
 import cesta from "../mocks/mock";
-import { Text , Image, View, FlatList} from 'react-native';
+import { Text , Image, View, FlatList, VirtualizedList} from 'react-native';
 import { StyleSheet } from 'react-native';
 
 export default function Itens() {
 
     const renderItem = ({item: {nome, imagem}}) =>{
-        return <View key={nome}>
-            <Text >{nome}</Text>
-            <Image source={imagem} />
-        </View>
+        return (
+            <View key={nome}>
+                <Text >{nome}</Text>
+                <Image source={imagem} />
+            </View>
+        )
     }
   return (
     <>
@@ -18,7 +20,7 @@ export default function Itens() {
             {cesta.itens.titulo}
         </Text>
 
-        <FlatList 
+        <FlatList
               data={cesta.itens.lista}
               renderItem={renderItem}
               keyExtractor={({nome}) => nome}

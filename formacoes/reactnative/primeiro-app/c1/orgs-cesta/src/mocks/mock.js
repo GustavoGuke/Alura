@@ -1,5 +1,4 @@
 import logo from '../../assets/logo.png';
-
 import tomate from '../../assets/frutas/Tomate.png';
 import brocolis from '../../assets/frutas/Brócolis.png';
 import batata from '../../assets/frutas/Batata.png';
