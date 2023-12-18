@@ -3,5 +3,20 @@
 }
 
 .menu {
-    padding: 20 250px;
+    padding: 20px 250px;
+}
+
+.header {
+    display: flex;
+    background-image: url("/src/assets/cardapio/header.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    &__text {
+        color: white;
+        font-size: 5rem;
+        min-width: 400px;
+    }
 }

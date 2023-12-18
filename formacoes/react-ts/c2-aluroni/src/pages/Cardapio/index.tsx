@@ -7,6 +7,11 @@ const Cardapio = () => {
             <nav className={style.menu}>
                 <Logo />
             </nav>
+            <header className={style.header}>
+                <div className={style.header__text}>
+                    Easy Food
+                </div>
+            </header>
         </main>
     )
 }
