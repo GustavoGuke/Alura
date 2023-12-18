@@ -1,5 +1,5 @@
 import './App.css'
-import Cardapio from './pages/Cardapio'
+import Cardapio from 'pages/Cardapio'
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 
 import style from './Cardapio.module.scss'
-import Logo from '../../assets/images/logo.svg?react'
+import Logo from 'assets/images/logo.svg?react'
 const Cardapio = () => {
     return (
         <main>
