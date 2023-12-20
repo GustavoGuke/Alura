@@ -1,9 +1,11 @@
+@import 'src/styles/variaveis';
+
 .texto {
     color: rgb(233, 35, 35);
 }
 
 .menu {
-    padding: 20px 250px;
+    padding: 20px $padding-horizontal;
 }
 
 .header {
@@ -14,6 +16,7 @@
     height: 300px;
     justify-content: center;
     align-items: center;
+    padding: 0 $padding-horizontal;
     &__text {
         color: white;
         font-size: 5rem;
