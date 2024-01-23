@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, SafeAreaView, FlatList } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, FlatList, KeyboardAvoidingView, Platform } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Item from './Item'
 
@@ -17,15 +17,20 @@ export default function Servicos() {
     }
   ]
   return (
-    <SafeAreaView style={estilo.margemInicio}>
+    <SafeAreaView style={[estilo.margemInicio, estilo.preencher]}>
       <StatusBar />
-      <Text>Servicos</Text>
-      <FlatList 
-        data={servicos}
-        removeClippedSubviews={false}
-        renderItem={({item}) => <Item {...item}/>}
-        keyExtractor={({id}) => String(id)}
-      />
+      <KeyboardAvoidingView 
+      behavior={Platform.OS == 'ios'? 'padding': 'height'}
+      style={estilo.preencher}
+      >
+        <Text>Servicos</Text>
+        <FlatList
+          data={servicos}
+          removeClippedSubviews={false}
+          renderItem={({ item }) => <Item {...item} />}
+          keyExtractor={({ id }) => String(id)}
+        />
+      </KeyboardAvoidingView>
     </SafeAreaView>
   )
 }
@@ -33,5 +38,8 @@ const estilo = StyleSheet.create({
   margemInicio: {
     marginTop: 30,
     marginHorizontal: 20
+  },
+  preencher: {
+    flex: 1,
   }
 })
