@@ -17,6 +17,15 @@
       "email": "natalia@email.com",
       "followers": 51,
       "following": 7
+    },
+    {
+      "login": "gustavo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10",
+      "name": "Gustavo",
+      "email": "gusta9999999@email.com",
+      "followers": 10,
+      "following": 5,
+      "id": "6bba"
     }
   ],
   "repos": [
