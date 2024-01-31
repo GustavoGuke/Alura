@@ -1,94 +1,64 @@
+import { Picker } from "@react-native-picker/picker"
 import React, { useState } from "react"
 import { Modal, View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from "react-native"
-import { Picker } from '@react-native-picker/picker'
-import { adcionarNota } from "../services/db_notas"
-//import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function NotaEditor({ mostrarNotas }) {
+export default function NotaEditor({mostraNotas}) {
 
-  const [texto, setTexto] = useState("")
   const [titulo, setTitulo] = useState("")
   const [categoria, setCategoria] = useState("Pessoal")
+  const [texto, setTexto] = useState("")
   const [modalVisivel, setModalVisivel] = useState(false)
 
-
-  // criar id no asyncstorage
-  // async function gerarId(){
-  //   const chaves = await AsyncStorage.getAllKeys()
-  //   if (chaves.length <= 0){
-  //     return 1
-  //   }
-  //   return chaves.length + 1
-  // }
-
-  // função com asyncstorage
-  // async function salvarNotas() {
-  //   const novoId = await gerarId()
-  //   const nota = {
-  //     id: novoId.toString(),
-  //     texto: texto
-  //   }
-  //   await AsyncStorage.setItem(nota.id, nota.texto)
-  //   mostrarNotas()
-
-  // }
-
-  async function salvarNotas() {
-    const nota = {
-      titulo: titulo,
-      categoria: categoria,
-      texto: texto
+  async function salvaNota() {
+    const umaNota = {
+      id: "1",
+      texto: texto,
     }
-
-    await adcionarNota(nota)
-    mostrarNotas()
+    console.log(umaNota)
+    mostraNotas()
   }
 
-  return (
+  return(
     <>
       <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisivel}
-        onRequestClose={() => { setModalVisivel(false) }}
+        onRequestClose={() => {setModalVisivel(false)}}
       >
         <View style={estilos.centralizaModal}>
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={estilos.modal}>
               <Text style={estilos.modalTitulo}>Criar nota</Text>
-              <Text style={estilos.modalSubTitulo}>Categoria</Text>
-              <TextInput
+              <Text style={estilos.modalSubTitulo}>Título da nota</Text>
+              <TextInput 
                 style={estilos.modalInput}
                 onChangeText={novoTitulo => setTitulo(novoTitulo)}
-                placeholder="Digite aqui o Titulo"
-                value={titulo} />
+                placeholder="Digite um título"
+                value={titulo}/>
+              <Text style={estilos.modalSubTitulo}>Categoria</Text>
               <View style={estilos.modalPicker}>
                 <Picker
                   selectedValue={categoria}
-                  onValueChange={(itemValue) => setCategoria(itemValue)}
-                >
-                  <Picker.Item label="Pessoal" value="Pessoal" />
-                  <Picker.Item label="Trabalho" value="Trabalho" />
-                  <Picker.Item label="Outros" value="Outros" />
+                  onValueChange={novaCategoria => setCategoria(novaCategoria)}>
+                    <Picker.Item label="Pessoal" value="Pessoal"/>
+                    <Picker.Item label="Trabalho" value="Trabalho"/>
+                    <Picker.Item label="Outros" value="Outros"/>
                 </Picker>
-                <Text style={estilos.modalSubTitulo}>Conteudo da nota</Text>
-                <TextInput
-                  style={estilos.modalInput}
-                  multiline={true}
-                  numberOfLines={3}
-                  onChangeText={novoTexto => setTexto(novoTexto)}
-                  placeholder="Digite aqui seu lembrete"
-                  value={texto} />
-
               </View>
+              <Text style={estilos.modalSubTitulo}>Conteúdo da nota</Text>
+              <TextInput 
+                style={estilos.modalInput}
+                multiline={true}
+                numberOfLines={3}
+                onChangeText={novoTexto => setTexto(novoTexto)}
+                placeholder="Digite aqui seu lembrete"
+                value={texto}/>
               <View style={estilos.modalBotoes}>
-                <TouchableOpacity
-                  style={estilos.modalBotaoSalvar}
-                  onPress={() => {salvarNotas()}}
-                >
+                <TouchableOpacity style={estilos.modalBotaoSalvar} onPress={() => {salvaNota()}}>
                   <Text style={estilos.modalBotaoTexto}>Salvar</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={estilos.modalBotaoCancelar} onPress={() => { setModalVisivel(false) }}>
+                <TouchableOpacity style={estilos.modalBotaoCancelar} onPress={() => {setModalVisivel(false)}}>
                   <Text style={estilos.modalBotaoTexto}>Cancelar</Text>
                 </TouchableOpacity>
               </View>
@@ -96,7 +66,7 @@ export default function NotaEditor({ mostrarNotas }) {
           </ScrollView>
         </View>
       </Modal>
-      <TouchableOpacity onPress={() => { setModalVisivel(true) }} style={estilos.adicionarMemo}>
+      <TouchableOpacity onPress={() => {setModalVisivel(true)}} style={estilos.adicionarMemo}>
         <Text style={estilos.adicionarMemoTexto}>+</Text>
       </TouchableOpacity>
     </>

@@ -11,3 +11,27 @@ export function criarTabela(){
         );`)
     })
 }
+
+export async function adcionarNota(nota){
+
+    return new Promise((resolve) => {
+        db.transaction((transaction) => {
+            transaction.executeSql(`INSERT INTO NOTAS (TITULO, CATEGORIA, TEXTO) VALUES (?,?,?);`,[nota.titulo, nota.categoria, nota.texto], () => {
+                resolve("Nota adicionada com sucesso")
+            })
+        })
+    })
+   
+}
+
+export async function buscaNota(){
+
+    return new Promise((resolve) => {
+        db.transaction((transaction) => {
+            transaction.executeSql(`SELECT * FROM NOTAS;`,[], (transaction, resultado) => {
+                resolve(resultado.rows._array)
+            })
+        })
+    })
+   
+}
