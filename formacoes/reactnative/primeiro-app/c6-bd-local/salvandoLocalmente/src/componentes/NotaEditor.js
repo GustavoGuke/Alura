@@ -39,7 +39,6 @@ export default function NotaEditor({ mostrarNotas }) {
       categoria: categoria,
       texto: texto
     }
-
     await adcionarNota(nota)
     mostrarNotas()
   }

@@ -7,6 +7,7 @@ import { buscaNota, criarTabela } from "./src/services/db_notas";
 
 export default function App() {
   const [notas, setNotas] = useState([])
+  
 
   useEffect(() => {
     criarTabela()
@@ -23,7 +24,6 @@ export default function App() {
   async function mostrarNota() {
     const todasAsNotas = await buscaNota()
     setNotas(todasAsNotas)
-    console.log(todasAsNotas)
   }
   return (
     <SafeAreaView style={estilos.container}>
