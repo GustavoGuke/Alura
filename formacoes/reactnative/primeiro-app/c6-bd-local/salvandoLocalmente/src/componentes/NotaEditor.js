@@ -1,16 +1,22 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Modal, View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from "react-native"
 import { Picker } from '@react-native-picker/picker'
 import { adcionarNota } from "../services/db_notas"
 //import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function NotaEditor({ mostrarNotas }) {
+export default function NotaEditor({ mostrarNotas, notaSelecionada }) {
 
   const [texto, setTexto] = useState("")
   const [titulo, setTitulo] = useState("")
   const [categoria, setCategoria] = useState("Pessoal")
   const [modalVisivel, setModalVisivel] = useState(false)
 
+  useEffect(() => {
+    if (notaSelecionada.id) {
+      preencherModal()
+      setModalVisivel(true)
+    }
+  },[notaSelecionada])
 
   // criar id no asyncstorage
   // async function gerarId(){
@@ -41,6 +47,13 @@ export default function NotaEditor({ mostrarNotas }) {
     }
     await adcionarNota(nota)
     mostrarNotas()
+  }
+
+
+  function preencherModal() {
+    setTitulo(notaSelecionada.titulo)
+    setCategoria(notaSelecionada.categoria)
+    setTexto(notaSelecionada.texto)
   }
 
   return (
@@ -83,7 +96,7 @@ export default function NotaEditor({ mostrarNotas }) {
               <View style={estilos.modalBotoes}>
                 <TouchableOpacity
                   style={estilos.modalBotaoSalvar}
-                  onPress={() => {salvarNotas()}}
+                  onPress={() => { salvarNotas() }}
                 >
                   <Text style={estilos.modalBotaoTexto}>Salvar</Text>
                 </TouchableOpacity>
