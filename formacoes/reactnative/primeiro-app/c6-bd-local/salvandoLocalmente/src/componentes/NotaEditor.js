@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from "react"
 import { Modal, View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from "react-native"
 import { Picker } from '@react-native-picker/picker'
-import { adcionarNota } from "../services/db_notas"
+import { adcionarNota, atualizarNota, deletarNota } from "../services/db_notas"
 //import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function NotaEditor({ mostrarNotas, notaSelecionada }) {
+export default function NotaEditor({ mostrarNotas, notaSelecionada, setNotaSelacionada }) {
 
   const [texto, setTexto] = useState("")
   const [titulo, setTitulo] = useState("")
   const [categoria, setCategoria] = useState("Pessoal")
   const [modalVisivel, setModalVisivel] = useState(false)
+  const [notaParaAtualizar, setNotaParaAtualizar] = useState(false)
 
   useEffect(() => {
     if (notaSelecionada.id) {
       preencherModal()
+      setNotaParaAtualizar(true)
       setModalVisivel(true)
+      return
     }
+    setNotaParaAtualizar(false)
+
   },[notaSelecionada])
 
   // criar id no asyncstorage
@@ -47,13 +52,39 @@ export default function NotaEditor({ mostrarNotas, notaSelecionada }) {
     }
     await adcionarNota(nota)
     mostrarNotas()
+    limpaModal()
   }
 
+  async function modificaNotas() {
+    const nota = {
+      titulo: titulo,
+      categoria: categoria,
+      texto: texto,
+      id: notaSelecionada.id
+    }
+    await atualizarNota(nota)
+    mostrarNotas()
+    limpaModal()
+  }
+
+  async function removeNota(){
+    await deletarNota(notaSelecionada)
+    mostrarNotas()
+    limpaModal()
+  }
 
   function preencherModal() {
     setTitulo(notaSelecionada.titulo)
     setCategoria(notaSelecionada.categoria)
     setTexto(notaSelecionada.texto)
+  }
+
+  function limpaModal() {
+    setTitulo("")
+    setCategoria("Pessoal")
+    setTexto("")
+    setNotaSelacionada({})
+    setModalVisivel(false)
   }
 
   return (
@@ -96,11 +127,18 @@ export default function NotaEditor({ mostrarNotas, notaSelecionada }) {
               <View style={estilos.modalBotoes}>
                 <TouchableOpacity
                   style={estilos.modalBotaoSalvar}
-                  onPress={() => { salvarNotas() }}
+                  onPress={() => { notaParaAtualizar ? modificaNotas() :salvarNotas() }}
                 >
                   <Text style={estilos.modalBotaoTexto}>Salvar</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={estilos.modalBotaoCancelar} onPress={() => { setModalVisivel(false) }}>
+                {
+                  notaParaAtualizar ?
+                    <TouchableOpacity style={estilos.modalBotaoDeletar} onPress={() => { removeNota() }}>
+                      <Text style={estilos.modalBotaoTexto}>Deletar</Text>
+                    </TouchableOpacity>
+                    : <></>
+                }
+                <TouchableOpacity style={estilos.modalBotaoCancelar} onPress={() => { limpaModal() }}>
                   <Text style={estilos.modalBotaoTexto}>Cancelar</Text>
                 </TouchableOpacity>
               </View>

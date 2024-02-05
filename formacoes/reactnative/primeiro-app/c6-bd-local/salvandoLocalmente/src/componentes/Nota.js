@@ -1,14 +1,14 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export function Nota({ item, setNotaSelecionada }) {
+export function Nota({ item, setNotaSelacionada }) {
   const categorias = { Pessoal: "#FF924F", Outros: "#00911F", Trabalho: "#2F71EB" }
   const style = styleFunction(categorias[item.categoria])
 
   return (
     <TouchableOpacity
       style={style.cartao}
-      onPress={() => setNotaSelecionada(item)}
+      onPress={() => setNotaSelacionada(item)}
       >
       <Text style={style.titulo}>{item.titulo}</Text>
       <Text style={style.categoria}>{item.categoria}</Text>

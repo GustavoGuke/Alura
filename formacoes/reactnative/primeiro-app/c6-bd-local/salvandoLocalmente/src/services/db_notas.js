@@ -22,8 +22,18 @@ export async function adcionarNota(nota){
 export async function atualizarNota(nota) {
     return new Promise((resolve) => {
         db.transaction((transaction) => {
-            transaction.executeSql(`UPDATE Notas SET titulo = ?, categoria = ?, text = ? WHERE id = ?;`, [nota.titulo, nota.categoria, nota.texto, nota.id], () => {
-                resolve("Nota adicionada com sucesso")
+            transaction.executeSql(`UPDATE Notas SET titulo = ?, categoria = ?, texto = ? WHERE id = ?;`, [nota.titulo, nota.categoria, nota.texto, nota.id], () => {
+                resolve("Nota atualizada com sucesso")
+            })
+        })
+    })
+}
+
+export async function deletarNota(nota) {
+    return new Promise((resolve) => {
+        db.transaction((transaction) => {
+            transaction.executeSql(`DELETE FROM Notas WHERE id = ?;`, [nota.id], () => {
+                resolve("Nota deletada com sucesso")
             })
         })
     })
