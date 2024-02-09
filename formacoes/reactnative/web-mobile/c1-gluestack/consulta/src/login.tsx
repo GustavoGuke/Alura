@@ -2,35 +2,33 @@ import {
   VStack, Text, Box,
   FormControl, FormControlLabel, FormControlLabelText,
   Input, InputIcon, InputField, InputSlot,
-  Button, ButtonText, ButtonIcon
+  Button, ButtonText,
+  Link, LinkText
 } from '@gluestack-ui/themed';
 
 import { Eye, EyeOffIcon } from 'lucide-react-native'
 import { useState } from 'react'
+import { TouchableOpacity } from 'react-native';
+import { Titulo } from './components/Titulo';
 
 export default function Login() {
   const [mostrarSenha, setMostrarSenha] = useState(false)
 
   const aoMostrarSenha = () => setMostrarSenha(!mostrarSenha)
   return (
-    <VStack flex={1} alignItems='center' p={5}>
+    <VStack flex={1} alignItems='center' justifyContent='center' p={10}>
       <Text
         pt={40}
         color='$primary500'
         fontSize='$4xl'>
         VOLL
       </Text>
-      <Text
-        fontSize='$2xl'
-        fontWeight='bold'
-        color='$coolGray500'
-        mt={10}
-      >
-        Faça login em sua conta
-      </Text>
+      <Titulo >
+        Faça login em sua conta 
+      </Titulo>
 
       <Box w='100%'>
-        <FormControl mt={3}>
+        <FormControl mt={10}>
           <FormControlLabel>
             <FormControlLabelText>Email</FormControlLabelText>
           </FormControlLabel>
@@ -46,7 +44,7 @@ export default function Login() {
           </Input>
         </FormControl>
 
-        <FormControl mt={3}>
+        <FormControl mt={10}>
           <FormControlLabel>
             <FormControlLabelText>senha</FormControlLabelText>
           </FormControlLabel>
@@ -58,9 +56,10 @@ export default function Login() {
           >
             <InputField
               placeholder='senha'
-              type={mostrarSenha ? 'text' : 'password'} />
+              type={mostrarSenha ? 'text' : 'password'}
+            />
             <InputSlot onPress={aoMostrarSenha} pr={5}>
-              <InputIcon size='lg' as={mostrarSenha? Eye: EyeOffIcon} />
+              <InputIcon size='lg' as={mostrarSenha ? Eye : EyeOffIcon} />
             </InputSlot>
 
           </Input>
@@ -69,10 +68,20 @@ export default function Login() {
       <Button
         w='100%'
         bg='$blue800'
+        mt={20}
+        borderRadius='$lg'
       >
         <ButtonText>Entrar</ButtonText>
-
       </Button>
+      <Link href='#' mt={2}>
+        <LinkText>Esqueceu sua senha</LinkText>
+      </Link>
+      <Box w='100%' flexDirection='row' justifyContent='center' mt={40}>
+        <Text>Ainda não tem cadastro! </Text>
+        <TouchableOpacity>
+          <Text color='$blue500'>Peça seu cadastro</Text>
+        </TouchableOpacity>
+      </Box>
     </VStack>
   );
 }
