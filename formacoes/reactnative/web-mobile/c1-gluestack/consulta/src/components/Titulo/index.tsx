@@ -8,6 +8,7 @@ interface TituloProps {
 export function Titulo({children, ...rest}: TituloProps) {
     return (
         <Text
+            alignSelf='center'
             fontSize='$2xl'
             fontWeight='bold'
             color='$coolGray500'

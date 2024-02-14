@@ -1,18 +1,24 @@
 import {
-  VStack, Text, Box,
+  Text, Box,
   FormControl, FormControlLabel, FormControlLabelText,
   Input, InputField,
   Button, ButtonText,
-  Checkbox, CheckboxLabel, CheckboxIndicator, CheckboxGroup
+  Checkbox, CheckboxLabel, CheckboxIndicator,
+  ScrollView,
+  Icon
 } from '@gluestack-ui/themed';
 
-import { Eye, EyeOffIcon } from 'lucide-react-native'
 import { useState } from 'react'
-import { FlatList } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native';
 import { Titulo } from './components/Titulo';
+import { secoes } from './utils/secoes';
+import { useNavigation } from '@react-navigation/native';
+import { ArrowRight, ArrowLeft } from 'lucide-react-native'
+import Login from './login';
 
 export default function Cadastro() {
   const [secao, setSecao] = useState(0)
+  const navega = useNavigation()
 
   function aoAvancarSecao() {
     if (secao < secoes.length - 1) {
@@ -24,65 +30,19 @@ export default function Cadastro() {
     setSecao(secao - 1);
   }
 
-  const secoes = [
-    {
-      id: 1,
-      titulo: 'Insira os seguintes dados',
-      entradaTexto: [
-        {
-          id: 1,
-          label: 'Nome',
-          placeholder: 'Digite seu nome completo'
-        },
-        {
-          id: 2,
-          label: 'Email',
-          placeholder: 'Digite seu email completo'
-        }
-      ],
-      checkbox: []
-    },
-    {
-      id: 2,
-      titulo: 'Falta pouco',
-      entradaTexto: [
-        {
-          id: 1,
-          label: 'Cep',
-          placeholder: 'insira o cep'
-        },
-        {
-          id: 2,
-          label: 'Endereço',
-          placeholder: 'Insira o seu endereço'
-        }
-      ],
-      checkbox: []
-    },
-    {
-      id: 3,
-      titulo: 'Qual o seu plano?',
-      entradaTexto: [],
-      checkbox: [
-        {
-          id: 1,
-          value: 'Sulamerica'
-        },
-        {
-          id: 2,
-          value: 'Unimed'
-        }
-      ]
-    }
 
-
-  ]
   return (
-    <VStack flex={1} alignItems='center' justifyContent='center' p={10}>
+    <ScrollView p={10}>
+      <TouchableOpacity onPress={() => navega.goBack()} >
+        <Icon as={ArrowLeft} size='xl'/>
+        <Text>Sair</Text>
+      </TouchableOpacity>
       <Text
         pt={40}
         color='$primary500'
-        fontSize='$4xl'>
+        fontSize='$4xl'
+        alignSelf='center'
+      >
         VOLL
       </Text>
       <Titulo >
@@ -90,70 +50,81 @@ export default function Cadastro() {
       </Titulo>
 
       <Box w='100%'>
-        {
-          secoes[secao].entradaTexto.map(entrada => {
-            return (
-              <FormControl mt={10} key={entrada.id}>
-                <FormControlLabel>
-                  <FormControlLabelText>{entrada.label}</FormControlLabelText>
-                </FormControlLabel>
-                <Input
-                  variant='outline'
-                  borderRadius='$lg'
-                  backgroundColor='$trueGray100'
-                  softShadow='3'
-                >
-                  <InputField
-                    placeholder={entrada.placeholder}
-                    type='text' />
-                </Input>
-              </FormControl>
-            )
-          })
-        }
+        <FlatList
+          data={secoes[secao].entradaTexto}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <FormControl mt={10} key={item.id}>
+              <FormControlLabel>
+                <FormControlLabelText color='$blue800' my={5} >{item.label}</FormControlLabelText>
+              </FormControlLabel>
+              <Input
+                size='lg'
+                variant='outline'
+                borderRadius='$lg'
+                backgroundColor='$trueGray100'
+                softShadow='3'
+              >
+                <InputField
+                  placeholder={item.placeholder}
+                  type='text' />
+              </Input>
+            </FormControl>
+          )}
+        />
       </Box>
       <Box w='100%'>
+
         <FlatList
           data={secoes[secao].checkbox}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
 
-            <Checkbox value={item.value} size='md' accessibilityLabel={item.value} key={item.id}>
+            <Checkbox value={item.value} size='lg' aria-label={item.value} my={5}>
               <CheckboxIndicator mr={2} />
-              <CheckboxLabel>{item.value}</CheckboxLabel>
+              <CheckboxLabel pl={10}>{item.value}</CheckboxLabel>
             </Checkbox>
 
           )}
+          ListHeaderComponent={
+            <>
+              {
+                secao === 2 && <Text color="$blue800" fontWeight="$bold" fontSize="$lg" mt={50} mb={2}>
+                  Selecione os planos:
+                </Text>
+              }
+            </>
+          }
         />
       </Box>
 
       {
         secao > 0 &&
         <Button
+          size='lg'
           w='100%'
           bg='$trueGray400'
-          mt={20}
+          mt={30}
+          mb={2}
           borderRadius='$lg'
           onPress={aoVoltarSecao}
         >
           <ButtonText>Voltar</ButtonText>
         </Button>
-
       }
 
-
       <Button
+        size='lg'
         w='100%'
         bg='$blue800'
         mt={20}
+        mb={40}
         borderRadius='$lg'
         onPress={aoAvancarSecao}
       >
         <ButtonText>Avançar</ButtonText>
       </Button>
-
-
-    </VStack>
+    </ScrollView>
   );
 }
 

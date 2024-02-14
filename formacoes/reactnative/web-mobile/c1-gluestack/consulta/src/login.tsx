@@ -11,12 +11,13 @@ import { useState } from 'react'
 import { TouchableOpacity } from 'react-native';
 import { Titulo } from './components/Titulo';
 
-export default function Login() {
+export default function Login({ navigation }) {
   const [mostrarSenha, setMostrarSenha] = useState(false)
 
   const aoMostrarSenha = () => setMostrarSenha(!mostrarSenha)
   return (
     <VStack flex={1} alignItems='center' justifyContent='center' p={10}>
+
       <Text
         pt={40}
         color='$primary500'
@@ -24,7 +25,7 @@ export default function Login() {
         VOLL
       </Text>
       <Titulo >
-        Faça login em sua conta 
+        Faça login em sua conta
       </Titulo>
 
       <Box w='100%'>
@@ -70,6 +71,7 @@ export default function Login() {
         bg='$blue800'
         mt={20}
         borderRadius='$lg'
+        onPress={() => navigation.navigate('Tabs')}
       >
         <ButtonText>Entrar</ButtonText>
       </Button>
