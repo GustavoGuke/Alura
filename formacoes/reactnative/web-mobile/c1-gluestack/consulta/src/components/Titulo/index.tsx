@@ -12,7 +12,8 @@ export function Titulo({children, ...rest}: TituloProps) {
             fontSize='$2xl'
             fontWeight='bold'
             color='$coolGray500'
-            mt={10}
+            mt={5}
+            pt={20}
             {...rest}
         >
             {children}
