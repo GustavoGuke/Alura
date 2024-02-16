@@ -7,7 +7,7 @@ describe('negocio/formatadores/moeda', () => {
                 const res = formataBrasileiroParaDecimal("8,59")
         
                 expect(res).toBe(8.59)
-                console.log(res)
+                
             });
         })
 
