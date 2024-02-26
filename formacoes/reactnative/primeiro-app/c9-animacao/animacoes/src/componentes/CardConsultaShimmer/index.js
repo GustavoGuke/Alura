@@ -1,37 +1,34 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
-import styles from "./styles";
-import Icon from 'react-native-vector-icons/Feather';
+import { View, Text, Image } from "react-native";
+import styles from "../CardConsulta/styles";
+import shimmerGif from '../../assets/shimmer.gif'
 
-export function CardConsultaShimmer({ nome, foto, horario, tipoConsulta, icon }) {
+export function CardConsultaShimmer() {
   return (
     <View style={styles.container}>
       <View style={styles.pessoaArea}>
-        <Image source={foto} style={styles.foto} />
+       <Image source={shimmerGif} style={[styles.foto, {
+        overlayColor: '#FFF'
+       }]}/>
         <View style={styles.informacoes}>
-          <Text style={styles.nome}>{nome}</Text>
+          <Image source={shimmerGif} style={{
+            width: 200, height: 25
+          }} />
           <View style={styles.consultaArea}>
-            <Icon name={icon} size={16} color="#A3A3A3" />
-            <Text style={styles.consultas}>{tipoConsulta}</Text>
+            <Image source={shimmerGif} style={{
+              width: 100, height: 25, marginTop: 5
+            }} />
           </View>
         </View>
       </View>
       <View style={styles.informacoesAgendamento}>
-        <Text style={styles.texto}>{horario}</Text>
+        <Image source={shimmerGif} style={{
+          width: 100, height: 15, marginTop: 5
+        }} />
         <View style={styles.botoesArea}>
-          {icon === "video" ? 
-          <>
-            <TouchableOpacity style={[styles.botao, { backgroundColor: '#FFB050' }]}>
-              <Text style={styles.botaoTexto}>Ligar por vídeo</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.botao}>
-              <Text style={styles.botaoTexto}>Ligar por áudio</Text>
-            </TouchableOpacity>
-          </> :
-            <TouchableOpacity style={styles.botaoLocalizacao}>
-              <Text style={[styles.botaoTexto, {color: '#FFF'}]}>Ver endereço</Text>
-            </TouchableOpacity>
-          }
+          <Image source={shimmerGif} style={{
+            width: '100%', height: 50, marginTop: 5, overlayColor: '#FFF', borderRadius: 10
+          }} />
         </View>
       </View>
     </View>
