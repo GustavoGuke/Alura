@@ -1,6 +1,6 @@
 import { Link } from "@react-navigation/native";
 import { Image, StyleSheet, Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native";
 
 export default function Card({ nome, idade, porte, imagem, caracteristicas, localidade, descricao, navigation }) {
     return (
