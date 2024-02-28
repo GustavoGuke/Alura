@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native";
 
 export default function Card({ nome, idade, porte, imagem, caracteristicas, localidade, descricao, navigation }) {
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.navigate('Sobre', {

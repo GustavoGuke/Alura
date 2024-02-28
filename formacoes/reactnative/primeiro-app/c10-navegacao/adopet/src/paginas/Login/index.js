@@ -37,7 +37,7 @@ export default function Login({ navigation }) {
                         />
 
                         <TouchableOpacity style={styles.button}
-                            onPress={() => navigation.navigate("Tabs")}
+                            onPress={() => navigation.navigate("Drawer")}
                         >
                             <Text style={styles.textoBotao}>Entrar</Text>
                         </TouchableOpacity>

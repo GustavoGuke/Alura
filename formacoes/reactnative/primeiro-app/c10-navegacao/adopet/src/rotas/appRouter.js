@@ -5,6 +5,7 @@ import Login from '../paginas/Login';
 import Cadastro from '../paginas/Cadastro'
 import Sobre from '../paginas/Sobre'
 import Tabs from '../Tabs'
+import { HamburguerNav } from "./Drawer";
 
 const Stack = createNativeStackNavigator()
 
@@ -17,7 +18,8 @@ export default function AppRouter(){
                 <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="Login" component={Login}/>
                 <Stack.Screen name="Cadastro" component={Cadastro}/>
-                <Stack.Screen name="Tabs" component={Tabs} />
+                <Stack.Screen name="Drawer" component={HamburguerNav} />
+                {/* <Stack.Screen name="Tabs" component={Tabs} /> */}
                 <Stack.Screen name="Sobre" component={Sobre}/>
             </Stack.Navigator>
         </NavigationContainer>
