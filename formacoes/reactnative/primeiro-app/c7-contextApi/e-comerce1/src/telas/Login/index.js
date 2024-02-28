@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { Text, View, TextInput, TouchableOpacity, StatusBar } from 'react-native';
 import { estilo } from './estilos';
+import { useContext } from "react";
+
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
+
   return (
     <View style={estilo.container}>
       <StatusBar />
       <Text style={estilo.titulo}>Login</Text>
-
       <View style={estilo.inputArea}>
         <TextInput
           style={estilo.input}

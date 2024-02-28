@@ -10,4 +10,6 @@ const tema = {
   input: '#FFFFFF',
 }
 
+
+
 export { tema };
