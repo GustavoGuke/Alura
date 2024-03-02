@@ -7,7 +7,7 @@ export function AutenticaProvider({ children }) {
     const [usuario, setUsuario] = useState({})
 
     function login(email, senha){
-        if(email == 'alura@email.com' && senha == 123){
+        if(email == 'alura' && senha == 123){
             setUsuario({
                 nome:'Alura',
                 email: email,

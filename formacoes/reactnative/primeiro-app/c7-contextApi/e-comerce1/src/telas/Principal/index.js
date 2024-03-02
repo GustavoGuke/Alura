@@ -7,10 +7,12 @@ import MaterialCommunityIcons from 'react-native-vector-icons/Feather';
 import { useContext } from 'react';
 import { TemaContext } from '../../context/TemaContext';
 import { AutenticaContext } from '../../context/AutenticacaoContext';
+import { ProdutosContext } from '../../context/ProdutosContext';
 
 
 export default function Principal({navigation}) {
-  const ultimosVistos = []
+  const {ultimosVistos, quantidade} = useContext(ProdutosContext)
+
   const {temaEscolhido} = useContext(TemaContext)
   const {usuario} = useContext(AutenticaContext)
 
@@ -26,7 +28,7 @@ export default function Principal({navigation}) {
             <Feather name="shopping-cart" size={30} color="#fff" style={estilo.carrinhoIcon} />
           </TouchableOpacity>
           <View style={estilo.carrinhoQuantidadeArea}>
-            <Text style={estilo.carrinhoQuantidade}>0</Text>  
+            <Text style={estilo.carrinhoQuantidade}>{quantidade}</Text>  
           </View>
           <TouchableOpacity onPress={() => navigation.navigate('Configurações')} style={estilo.iconArea} >
             <MaterialCommunityIcons name="settings" size={30} color="#fff" style={estilo.icon} />
@@ -36,7 +38,7 @@ export default function Principal({navigation}) {
 
       <FlatList
         data={produtos}
-        keyExtractor={item => Math.random()}
+        keyExtractor={item => item.texto}
         renderItem={({ item }) => <Produto item={item} adicionar={true} />}
         style={estilo.lista}
         showsVerticalScrollIndicator={false}
@@ -44,10 +46,10 @@ export default function Principal({navigation}) {
           <View>
             {ultimosVistos.length > 0 &&
               <View style={estilo.ultimosVistos}>
-                <Text style={estilo.tituloUltimosVistos}>Últimos vistos</Text>
+                <Text style={estilo.tituloUltimosVistos}>ultimos Vistos</Text>
                 <FlatList
                   data={ultimosVistos}
-                  keyExtractor={item => Math.random()}
+                  keyExtractor={item => item.texto}
                   renderItem={({ item }) => <Produto item={item} adicionar={false} />}
                   style={estilo.lista}
                   horizontal
