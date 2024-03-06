@@ -1,4 +1,4 @@
-import 'react-native-gesture-handler';
+//import 'react-native-gesture-handler';
 import { StatusBar } from 'react-native';
 import { Provider as RNPProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
