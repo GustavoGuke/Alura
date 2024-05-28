@@ -28,6 +28,7 @@ export default function App() {
   }
   return (
     <SafeAreaView style={estilos.container}>
+      <StatusBar backgroundColor={'green'} />
       <FlatList
         data={notas}
         renderItem={(item) => <Nota {...item} setNotaSelacionada={setNotaSelacionada} />}
@@ -37,7 +38,6 @@ export default function App() {
         mostrarNotas={mostrarNota}
         notaSelecionada={notaSelecionada}
         setNotaSelacionada={setNotaSelacionada} />
-      <StatusBar backgroundColor={'green'} />
     </SafeAreaView>
   )
 }

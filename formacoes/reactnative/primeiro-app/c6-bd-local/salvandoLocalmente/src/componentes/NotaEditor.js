@@ -9,6 +9,7 @@ export default function NotaEditor({ mostrarNotas, notaSelecionada, setNotaSelac
   const [texto, setTexto] = useState("")
   const [titulo, setTitulo] = useState("")
   const [categoria, setCategoria] = useState("Pessoal")
+  const [urgencia, setUrgencia] = useState("Urgente")
   const [modalVisivel, setModalVisivel] = useState(false)
   const [notaParaAtualizar, setNotaParaAtualizar] = useState(false)
 
@@ -48,9 +49,12 @@ export default function NotaEditor({ mostrarNotas, notaSelecionada, setNotaSelac
     const nota = {
       titulo: titulo,
       categoria: categoria,
+      urgencia: urgencia,
       texto: texto
     }
+    console.log(nota)
     await adcionarNota(nota)
+    console.log("nao passeo")
     mostrarNotas()
     limpaModal()
   }
@@ -59,6 +63,7 @@ export default function NotaEditor({ mostrarNotas, notaSelecionada, setNotaSelac
     const nota = {
       titulo: titulo,
       categoria: categoria,
+      urgencia: urgencia,
       texto: texto,
       id: notaSelecionada.id
     }
@@ -76,12 +81,14 @@ export default function NotaEditor({ mostrarNotas, notaSelecionada, setNotaSelac
   function preencherModal() {
     setTitulo(notaSelecionada.titulo)
     setCategoria(notaSelecionada.categoria)
+    setUrgencia(notaSelecionada.urgencia)
     setTexto(notaSelecionada.texto)
   }
 
   function limpaModal() {
     setTitulo("")
     setCategoria("Pessoal")
+    setUrgencia("")
     setTexto("")
     setNotaSelacionada({})
     setModalVisivel(false)
@@ -99,7 +106,7 @@ export default function NotaEditor({ mostrarNotas, notaSelecionada, setNotaSelac
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={estilos.modal}>
               <Text style={estilos.modalTitulo}>Criar nota</Text>
-              <Text style={estilos.modalSubTitulo}>Categoria</Text>
+              <Text style={estilos.modalSubTitulo}>Titulo</Text>
               <TextInput
                 style={estilos.modalInput}
                 onChangeText={novoTitulo => setTitulo(novoTitulo)}
@@ -114,11 +121,20 @@ export default function NotaEditor({ mostrarNotas, notaSelecionada, setNotaSelac
                   <Picker.Item label="Trabalho" value="Trabalho" />
                   <Picker.Item label="Outros" value="Outros" />
                 </Picker>
+
+                <Picker
+                  selectedValue={urgencia}
+                  onValueChange={(itemValue) => setUrgencia(itemValue)}
+                >
+                  <Picker.Item label="Urgente" value="Urgente" />
+                  <Picker.Item label="Esperar" value="Esperar" />
+                  <Picker.Item label="Pouco" value="Pouco" />
+                </Picker>
                 <Text style={estilos.modalSubTitulo}>Conteudo da nota</Text>
                 <TextInput
                   style={estilos.modalInput}
                   multiline={true}
-                  numberOfLines={3}
+                  numberOfLines={2}
                   onChangeText={novoTexto => setTexto(novoTexto)}
                   placeholder="Digite aqui seu lembrete"
                   value={texto} />
@@ -127,7 +143,7 @@ export default function NotaEditor({ mostrarNotas, notaSelecionada, setNotaSelac
               <View style={estilos.modalBotoes}>
                 <TouchableOpacity
                   style={estilos.modalBotaoSalvar}
-                  onPress={() => { notaParaAtualizar ? modificaNotas() :salvarNotas() }}
+                  onPress={() => { notaParaAtualizar ? modificaNotas() : salvarNotas() }}
                 >
                   <Text style={estilos.modalBotaoTexto}>Salvar</Text>
                 </TouchableOpacity>

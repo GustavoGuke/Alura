@@ -3,7 +3,8 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export function Nota({ item, setNotaSelacionada }) {
   const categorias = { Pessoal: "#FF924F", Outros: "#00911F", Trabalho: "#2F71EB" }
-  const style = styleFunction(categorias[item.categoria])
+  const urgencias = { Urgente: "#FF924F", Esperar: "#00911F", Pouco: "#2F71EB" }
+  const style = styleFunction(categorias[item.categoria], urgencias[item.urgencia])
 
   return (
     <TouchableOpacity
@@ -12,12 +13,13 @@ export function Nota({ item, setNotaSelacionada }) {
       >
       <Text style={style.titulo}>{item.titulo}</Text>
       <Text style={style.categoria}>{item.categoria}</Text>
+      <Text style={style.urgenciaa}>{item.urgencia}</Text>
       <Text style={style.texto} numberOfLines={5}>{item.texto}</Text>
     </TouchableOpacity>
   )
 }
 
-const styleFunction = (cor) => StyleSheet.create({
+const styleFunction = (cor,urgenciaas) => StyleSheet.create({
   cartao: {
     borderRadius: 8,
     backgroundColor: "#ffffff",
@@ -50,5 +52,12 @@ const styleFunction = (cor) => StyleSheet.create({
   },
   texto: {
     lineHeight: 28,
-  }
+  },
+  urgenciaa: {
+    borderRadius: 4,
+    backgroundColor: urgenciaas,
+    padding: 4,
+    color: "#FAFAFA",
+    alignSelf: "flex-start",
+  },
 })

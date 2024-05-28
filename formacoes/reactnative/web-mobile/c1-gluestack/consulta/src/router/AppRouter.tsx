@@ -16,7 +16,6 @@ export function AppRouter() {
         <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
         <Stack.Screen name="Cadastro" component={Cadastro} options={{headerShown: false}}/>
         <Stack.Screen name="Tabs" component={Tabs} options={{headerShown: false}}/>
-
       </Stack.Navigator>
     </NavigationContainer>
   );
