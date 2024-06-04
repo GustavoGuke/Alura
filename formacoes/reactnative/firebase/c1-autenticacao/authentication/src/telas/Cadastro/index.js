@@ -1,17 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import Botao from '../../componentes/Botao';
 import { EntradaTexto } from '../../componentes/EntradaTexto';
 import estilos from './estilos';
 
-export default function Cadastro({ navigation }) {  
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../../config/config';
+
+export default function Cadastro({ navigation }) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [confirmaSenha, setConfirmaSenha] = useState('');
 
+  useEffect(() => {
+    
+    createUserWithEmailAndPassword(auth, 'teste3@email.com', '1234567')
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user)
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage)
+        // ..
+      });
+  })
+
   return (
     <View style={estilos.container}>
-      <EntradaTexto 
+      <EntradaTexto
         label="E-mail"
         value={email}
         onChangeText={texto => setEmail(texto)}
@@ -29,8 +49,8 @@ export default function Cadastro({ navigation }) {
         onChangeText={texto => setConfirmaSenha(texto)}
         secureTextEntry
       />
-      
-      <Botao onPress={() => {}}>CADASTRAR</Botao>
+
+      <Botao onPress={() => { }}>CADASTRAR</Botao>
     </View>
   );
 }

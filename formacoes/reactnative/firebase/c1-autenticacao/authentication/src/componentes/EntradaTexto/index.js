@@ -18,10 +18,10 @@ export function EntradaTexto({ label, value, onChangeText, secureTextEntry, erro
         activeOutlineColor='#1E8187'
         right={
           secureTextEntry ?
-          <TextInput.Icon
-            name={secureMode ? 'eye-off' : 'eye'}
-            onPress={() => setSecureMode(!secureMode)}
-          /> : null
+            <TextInput.Icon
+              icon={secureMode ? 'eye-off' : 'eye'}
+              onPress={() => setSecureMode(!secureMode)}
+            /> : null
         }
       />
       {error && <HelperText type="error" visible={error}>
