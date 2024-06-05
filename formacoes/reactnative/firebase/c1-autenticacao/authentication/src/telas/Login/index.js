@@ -10,6 +10,7 @@ export default function Login({ navigation }) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
+  // persistencia logar automatico
   useEffect(() => {
     const usuarioJaLogou = auth.onAuthStateChanged( usuario => {
       if(usuario){

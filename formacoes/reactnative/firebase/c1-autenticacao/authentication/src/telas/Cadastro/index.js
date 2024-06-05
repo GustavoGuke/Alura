@@ -50,22 +50,22 @@ export default function Cadastro({ navigation }) {
 
   }
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    createUserWithEmailAndPassword(auth, 'teste3@email.com', '1234567')
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        console.log(user)
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage)
-        // ..
-      });
-  })
+  //   createUserWithEmailAndPassword(auth, 'teste3@email.com', '1234567')
+  //     .then((userCredential) => {
+  //       // Signed in 
+  //       const user = userCredential.user;
+  //       console.log(user)
+  //       // ...
+  //     })
+  //     .catch((error) => {
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       console.log(errorCode, errorMessage)
+  //       // ..
+  //     });
+  // })
 
   return (
     <View style={estilos.container}>
