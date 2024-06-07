@@ -3,12 +3,9 @@ import { View, Text } from 'react-native';
 import Cabecalho from '../../componentes/Cabecalho';
 import Produto from '../../componentes/Produtos';
 import estilos from './estilos';
-import { auth, db } from '../../config/firebase';
-import { collection, addDoc } from "firebase/firestore";
+import { auth} from '../../config/firebase';
+
 import { BotaoProduto } from '../../componentes/BotaoProduto';
-
-
-
 export default function Principal({ navigation }) {
   const usuario = auth.currentUser;
 
@@ -16,18 +13,7 @@ export default function Principal({ navigation }) {
     auth.signOut();
     navigation.replace('Login');
   }
-  // useEffect(() => {
-  //   // Add a new document in collection "cities"
-  //   async function criarProduto() {
-  //     await addDoc(collection(db, "curso_firebase_alura"), {
-  //       name: "Los Angeles",
-  //       state: "CA",
-  //       country: "USA"
-  //     });
-  //   }
 
-
-  // }, [])
   return (
     <View style={estilos.container}>
       <Cabecalho logout={deslogar} />
