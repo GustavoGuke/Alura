@@ -4,7 +4,7 @@ import  Botao  from "../../componentes/Botao"
 
 import style from "./style";
 import { useState } from "react";
-import { criarProduto } from "../../servicos/firestore";
+import { criarProduto } from "../../services/firestore";
 
 export function Dadosproduto({navigation}) {
     const [nome, setNome] = useState("")
