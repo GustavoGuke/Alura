@@ -12,15 +12,16 @@ export function Dadosproduto({navigation}) {
 
 
     async function salvarProdutor(){
-        console.log("entro na func1")
         const resultado = await criarProduto({
             nome,preco
         })
-        //console.log(resultado)
         if(resultado == "ok"){
             Alert.alert("Produto enviado","deseja voltar para tela anterior",[
-                {text: "Sim", onPress: navigation.goBack()},
-                {text: "Não", onPress: () => {}}
+                {text: "Não", onPress: () => {
+                    setNome("")
+                    setPreco("")
+                }},
+                {text: "Sim", onPress: () => navigation.goBack()},
             ])
         }else {
             Alert.alert("Ocorreu erro ao enviar dados")
@@ -41,7 +42,7 @@ export function Dadosproduto({navigation}) {
                 
             />
 
-            <Botao onPress={() => salvarProdutor()}>Salvar</Botao>
+            <Botao onPress={salvarProdutor}>Salvar</Botao>
         </View>
     )
 }

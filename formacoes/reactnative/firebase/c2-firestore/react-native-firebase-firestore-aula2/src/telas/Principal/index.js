@@ -3,22 +3,17 @@ import { View, Text } from 'react-native';
 import Cabecalho from '../../componentes/Cabecalho';
 import Produto from '../../componentes/Produtos';
 import estilos from './estilos';
-import { auth} from '../../config/firebase';
-
+import { auth } from '../../config/firebase';
 import { BotaoProduto } from '../../componentes/BotaoProduto';
-import { pegarProdutos } from '../../servicos/firestore';
-import Botao from '../../componentes/Botao';
+
 export default function Principal({ navigation }) {
   const usuario = auth.currentUser;
 
-  function deslogar() {
+  function deslogar(){
     auth.signOut();
     navigation.replace('Login');
   }
 
-  async function mostarProdutos(){
-    await pegarProdutos()
-  }
   return (
     <View style={estilos.container}>
       <Cabecalho logout={deslogar} />
@@ -27,11 +22,7 @@ export default function Principal({ navigation }) {
       <Produto nome="Tênis" preco="200,00" />
       <Produto nome="Camisa" preco="100,00" />
       <Produto nome="Suplementos" preco="150,00" />
-
-      <BotaoProduto onPress={() => {navigation.navigate("Produtos")}} />
-      <Botao onPress={mostarProdutos}>
-        mostrar produtos
-      </Botao>
-    </View>
+      <BotaoProduto onPress={() => navigation.navigate("DadosProduto")} />
+     </View>
   );
 }
