@@ -1,37 +1,58 @@
-import React, { useEffect } from 'react';
-import { View, Text } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, FlatList, RefreshControl } from 'react-native';
 import Cabecalho from '../../componentes/Cabecalho';
 import Produto from '../../componentes/Produtos';
 import estilos from './estilos';
-import { auth} from '../../config/firebase';
+import { auth } from '../../config/firebase';
 
 import { BotaoProduto } from '../../componentes/BotaoProduto';
 import { pegarProdutos } from '../../servicos/firestore';
 import Botao from '../../componentes/Botao';
 export default function Principal({ navigation }) {
   const usuario = auth.currentUser;
+  const [produtos, setProdutos] = useState([])
+  const [refreshing, setRefreshing] = React.useState(false);
 
   function deslogar() {
     auth.signOut();
     navigation.replace('Login');
   }
 
-  async function mostarProdutos(){
-    await pegarProdutos()
+  async function mostarProdutos() {
+    setRefreshing(true)
+    const produtosFirestore = await pegarProdutos()
+    //console.log(produtosFirestore)
+    setProdutos(produtosFirestore)
+    setRefreshing(false)
   }
+
+  useEffect(() => {
+   
+    mostarProdutos()
+  }, [])
   return (
     <View style={estilos.container}>
       <Cabecalho logout={deslogar} />
       <Text style={estilos.texto}>Usuário: {usuario.email}</Text>
 
-      <Produto nome="Tênis" preco="200,00" />
-      <Produto nome="Camisa" preco="100,00" />
-      <Produto nome="Suplementos" preco="150,00" />
+      <FlatList
+        data={produtos}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => (
+          <Produto nome={item.nome} preco={item.preco} />
+        )}
+        refreshControl={
+          <RefreshControl 
+            refreshing={refreshing}
+            onRefresh={mostarProdutos}
+          />
+        }
+        showsVerticalScrollIndicator={false}  
+      />
 
-      <BotaoProduto onPress={() => {navigation.navigate("Produtos")}} />
-      <Botao onPress={mostarProdutos}>
-        mostrar produtos
-      </Botao>
+
+      <BotaoProduto onPress={() => { navigation.navigate("Produtos") }} />
+
     </View>
   );
 }

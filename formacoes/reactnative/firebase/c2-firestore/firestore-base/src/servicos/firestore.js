@@ -1,5 +1,5 @@
 import { db } from "../config/firebase";
-import { collection, addDoc, doc, getDoc, getDocs} from "firebase/firestore";
+import { collection, addDoc, getDocs} from "firebase/firestore";
 
 // Add a new document in collection "cities"
 export async function criarProduto(data) {
@@ -15,12 +15,17 @@ export async function criarProduto(data) {
 export async function pegarProdutos(){
     try {
         const docRef = await getDocs(collection(db, 'aluraCurso'))
-        docRef.forEach((produtos) => {
-            console.log(produtos.data())
+        let produtos = []
+        docRef.forEach((doc) => {
+            let produto = 
+            {
+                id:doc.id, ...doc.data()
+            }
+            produtos.push(produto)
         })
-        
+        return produtos
     } catch (error) {
         console.log(error)
-        return
+        return []
     }
 }

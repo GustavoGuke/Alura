@@ -5,13 +5,21 @@ import  Botao  from "../../componentes/Botao"
 import style from "./style";
 import { useState } from "react";
 import { criarProduto } from "../../servicos/firestore";
+import { Alerta } from "../../componentes/Alerta";
 
 export function Dadosproduto({navigation}) {
     const [nome, setNome] = useState("")
     const [preco, setPreco] = useState(0)
+    const [mensagem, setMensagem] = useState("")
+    const [mostrarMensagem, setMostrarMensagem] = useState(false)
 
 
     async function salvarProdutor(){
+        if (nome == "" || preco == ""){
+            setMensagem("Preencha todos os campos")
+            setMostrarMensagem(true)
+            return
+        }
         const resultado = await criarProduto({
             nome,preco
         })
@@ -24,7 +32,10 @@ export function Dadosproduto({navigation}) {
                 {text: "Sim", onPress: () => navigation.goBack()},
             ])
         }else {
-            Alert.alert("Ocorreu erro ao enviar dados")
+            //Alert.alert("Ocorreu erro ao enviar dados")
+            setMensagem("Ocorreu erro ao enviar dados")
+            setMostrarMensagem(true)
+
         }
     }
     return (
@@ -43,6 +54,13 @@ export function Dadosproduto({navigation}) {
             />
 
             <Botao onPress={salvarProdutor}>Salvar</Botao>
+            <Alerta
+                mensagem={mensagem}
+                error={mostrarMensagem}
+                setError={setMostrarMensagem}
+            />
+
+            
         </View>
     )
 }
