@@ -7,11 +7,11 @@ import { auth } from '../../config/firebase';
 
 import { BotaoProduto } from '../../componentes/BotaoProduto';
 import { pegarProdutos } from '../../servicos/firestore';
-import Botao from '../../componentes/Botao';
+import { TouchableOpacity } from 'react-native';
 export default function Principal({ navigation }) {
   const usuario = auth.currentUser;
   const [produtos, setProdutos] = useState([])
-  const [refreshing, setRefreshing] = React.useState(false);
+  const [refreshing, setRefreshing] = useState(false);
 
   function deslogar() {
     auth.signOut();
@@ -21,13 +21,11 @@ export default function Principal({ navigation }) {
   async function mostarProdutos() {
     setRefreshing(true)
     const produtosFirestore = await pegarProdutos()
-    //console.log(produtosFirestore)
     setProdutos(produtosFirestore)
     setRefreshing(false)
   }
 
   useEffect(() => {
-   
     mostarProdutos()
   }, [])
   return (
@@ -39,15 +37,17 @@ export default function Principal({ navigation }) {
         data={produtos}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
-          <Produto nome={item.nome} preco={item.preco} />
+          <TouchableOpacity>
+            <Produto nome={item.nome} preco={item.preco} />
+          </TouchableOpacity>
         )}
         refreshControl={
-          <RefreshControl 
+          <RefreshControl
             refreshing={refreshing}
             onRefresh={mostarProdutos}
           />
         }
-        showsVerticalScrollIndicator={false}  
+        showsVerticalScrollIndicator={false}
       />
 
 

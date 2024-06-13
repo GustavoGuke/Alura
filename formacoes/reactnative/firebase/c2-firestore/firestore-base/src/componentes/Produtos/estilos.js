@@ -10,7 +10,7 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
     borderBottomWidth: 1,
     borderColor: "#c7c7c7",
-   
+    
   },
   texto: {
     fontSize: 16,
