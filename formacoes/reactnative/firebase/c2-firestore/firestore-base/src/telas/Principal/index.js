@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, RefreshControl } from 'react-native';
+import { View, Text, FlatList, RefreshControl, Alert } from 'react-native';
 import Cabecalho from '../../componentes/Cabecalho';
 import Produto from '../../componentes/Produtos';
 import estilos from './estilos';
 import { auth } from '../../config/firebase';
 
 import { BotaoProduto } from '../../componentes/BotaoProduto';
-import { pegarProdutos } from '../../servicos/firestore';
+import { deletarProduto, pegarProdutos } from '../../servicos/firestore';
 import { TouchableOpacity } from 'react-native';
 export default function Principal({ navigation }) {
   const usuario = auth.currentUser;
@@ -16,6 +16,19 @@ export default function Principal({ navigation }) {
   function deslogar() {
     auth.signOut();
     navigation.replace('Login');
+  }
+
+  function deletar(id) {
+
+    Alert.alert("Deletar Produto", "deseja realmente deletar este produto", [
+      {
+        text: "Sim", onPress: async () => { 
+          await deletarProduto(id) 
+          await mostarProdutos()
+        }
+      },
+      { text: "Não", onPress: () => {} },
+    ])
   }
 
   async function mostarProdutos() {
@@ -37,9 +50,20 @@ export default function Principal({ navigation }) {
         data={produtos}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
-          <TouchableOpacity>
-            <Produto nome={item.nome} preco={item.preco} />
-          </TouchableOpacity>
+
+          <View style={{ justifyContent: "space-between", flexDirection: "row", alignItems: "center" }}>
+            <TouchableOpacity
+              style={{ flex: 1 }}
+              onPress={() => {
+                navigation.navigate("Produtos", item)
+              }}
+            >
+              <Produto nome={item.nome} preco={item.preco} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => deletar(item.id)}>
+              <Text style={{ paddingRight: 35 }}>lixo</Text>
+            </TouchableOpacity>
+          </View>
         )}
         refreshControl={
           <RefreshControl

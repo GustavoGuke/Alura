@@ -1,10 +1,10 @@
 import { db } from "../config/firebase";
-import { collection, addDoc, getDocs} from "firebase/firestore";
+import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc } from "firebase/firestore";
 
 // Add a new document in collection "cities"
 export async function criarProduto(data) {
     try {
-        await addDoc(collection(db,"aluraCurso"), data);
+        await addDoc(collection(db, "aluraCurso"), data);
         return "ok"
     } catch (error) {
         console.log(error)
@@ -12,14 +12,14 @@ export async function criarProduto(data) {
     }
 }
 
-export async function pegarProdutos(){
+export async function pegarProdutos() {
     try {
         const docRef = await getDocs(collection(db, 'aluraCurso'))
         let produtos = []
         docRef.forEach((doc) => {
-            let produto = 
+            let produto =
             {
-                id:doc.id, ...doc.data()
+                id: doc.id, ...doc.data()
             }
             produtos.push(produto)
         })
@@ -27,5 +27,28 @@ export async function pegarProdutos(){
     } catch (error) {
         console.log(error)
         return []
+    }
+}
+
+export async function atualizarProduto(produtoId, data) {
+
+    try {
+        const docRef = doc(db, 'aluraCurso', produtoId)
+        await updateDoc(docRef, data)
+        return 'ok'
+    } catch (error) {
+        console.log(error)
+        return
+    }
+}
+
+export async function deletarProduto(produtoId) {
+
+    try {
+        await deleteDoc(doc(db, 'aluraCurso', produtoId))
+        return 'ok'
+    } catch (error) {
+        console.log(error)
+        return
     }
 }

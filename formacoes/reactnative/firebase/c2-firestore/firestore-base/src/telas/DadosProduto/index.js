@@ -1,37 +1,45 @@
 import { View, Text, Alert } from "react-native";
 import { EntradaTexto } from "../../componentes/EntradaTexto"
-import  Botao  from "../../componentes/Botao"
+import Botao from "../../componentes/Botao"
 
 import style from "./style";
 import { useState } from "react";
-import { criarProduto } from "../../servicos/firestore";
+import { atualizarProduto, criarProduto } from "../../servicos/firestore";
 import { Alerta } from "../../componentes/Alerta";
 
-export function Dadosproduto({navigation}) {
-    const [nome, setNome] = useState("")
-    const [preco, setPreco] = useState(0)
+export function Dadosproduto({ navigation, route }) {
+    const [nome, setNome] = useState(route?.params?.nome || "")
+    const [preco, setPreco] = useState(route?.params?.preco || "")
     const [mensagem, setMensagem] = useState("")
     const [mostrarMensagem, setMostrarMensagem] = useState(false)
 
 
-    async function salvarProdutor(){
-        if (nome == "" || preco == ""){
+    async function salvarProdutor() {
+        let resultado = ''
+        if (nome == "" || preco == "") {
             setMensagem("Preencha todos os campos")
             setMostrarMensagem(true)
             return
         }
-        const resultado = await criarProduto({
-            nome,preco
-        })
-        if(resultado == "ok"){
-            Alert.alert("Produto enviado","deseja voltar para tela anterior",[
-                {text: "Não", onPress: () => {
-                    setNome("")
-                    setPreco("")
-                }},
-                {text: "Sim", onPress: () => navigation.goBack()},
+        if (route?.params) {
+            resultado = await atualizarProduto(route?.params?.id,{nome, preco} )
+        } else {
+            resultado = await criarProduto({
+                nome, preco
+            })
+        }
+
+        if (resultado == "ok") {
+            Alert.alert("Produto enviado", "deseja voltar para tela anterior", [
+                {
+                    text: "Não", onPress: () => {
+                        setNome("")
+                        setPreco("")
+                    }
+                },
+                { text: "Sim", onPress: () => navigation.goBack() },
             ])
-        }else {
+        } else {
             //Alert.alert("Ocorreu erro ao enviar dados")
             setMensagem("Ocorreu erro ao enviar dados")
             setMostrarMensagem(true)
@@ -50,7 +58,7 @@ export function Dadosproduto({navigation}) {
                 label="Preço "
                 value={preco}
                 onChangeText={setPreco}
-                
+
             />
 
             <Botao onPress={salvarProdutor}>Salvar</Botao>
@@ -60,7 +68,7 @@ export function Dadosproduto({navigation}) {
                 setError={setMostrarMensagem}
             />
 
-            
+
         </View>
     )
 }
