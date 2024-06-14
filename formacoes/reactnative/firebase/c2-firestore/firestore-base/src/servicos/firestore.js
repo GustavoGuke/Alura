@@ -1,5 +1,5 @@
 import { db } from "../config/firebase";
-import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, where, onSnapshot } from "firebase/firestore";
 
 // Add a new document in collection "cities"
 export async function criarProduto(data) {
@@ -51,4 +51,31 @@ export async function deletarProduto(produtoId) {
         console.log(error)
         return
     }
+}
+
+export async function mostraEmTempoReal(setProdutos){
+    
+    const docRef = query(collection(db, 'aluraCurso'))
+    onSnapshot(docRef, (querySnapshot) => {
+        const produtos = []
+        querySnapshot.forEach((doc) => {
+            produtos.push({id: doc.id, ...doc.data()})
+        })
+        setProdutos(produtos)
+    })
+}
+
+
+
+
+async function buscarNomeProduto(nomeDeBusca) {
+    const produtoRef = collection(db, "produtos");
+    const q = query(citiesRef, where("nome", "==", nomeDeBusca));
+
+    let listaProdutosFiltrados = []
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        listaProdutosFiltrados.push({id: doc.id, ...doc.data()})
+    });
+    return listaProdutosFiltrados;
 }
