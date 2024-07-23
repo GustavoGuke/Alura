@@ -6,6 +6,7 @@ import { NovoPostBotao } from "../../componentes/NovoPostBotao";
 import { pegarPostsTempoReal } from "../../servicos/firestore";
 import estilos from "./estilos";
 
+
 export default function Principal({ navigation }) {
     const [posts, setPosts] = useState([]);
 
@@ -17,13 +18,13 @@ export default function Principal({ navigation }) {
         <View style={estilos.container}>
             <Cabecalho />
             <ScrollView style={estilos.scroll} showsVerticalScrollIndicator={false}>
-
                 {posts?.map((item) => (
-                    <CartaoInfo 
-                        key={item.id} 
-                        titulo={item.titulo}  
-                        fonte={item.fonte} 
-                        descricao={item.descricao} 
+                    <CartaoInfo
+                        key={item.id}
+                        titulo={item.titulo}
+                        fonte={item.fonte}
+                        descricao={item.descricao}
+                        imagem={item.imageUrl}
                         acao={() => navigation.navigate("Post", { item })}
                     />
                 ))}

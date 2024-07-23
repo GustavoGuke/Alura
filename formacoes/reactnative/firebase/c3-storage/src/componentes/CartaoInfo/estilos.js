@@ -50,4 +50,10 @@ export default StyleSheet.create({
         display: "none",
         marginBottom: 10,
     },
+    imagem: {
+        width: "100%",
+        height: 200,
+        borderRadius: 10,
+        marginBottom: 20,
+    },
 });

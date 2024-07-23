@@ -16,3 +16,6 @@ web-build/
 package-lock.json
 .env
 yarn.lock
+
+#firebase config
+google-services.json
