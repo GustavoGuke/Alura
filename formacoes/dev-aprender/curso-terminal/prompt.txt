@@ -1,0 +1,14 @@
+
+criar arquivo 
+type nul > meu_arquivo.txt
+
+mover arquivo para pasta
+move comandosTerminalCuso.txt .\curso-terminal
+
+copiar arquivo
+copy arquivo.txt novo.txt
+
+renomear arquivo e pasta
+rename comandosTerminalCuso.txt  prompt.txt
+
+del prompt.txt

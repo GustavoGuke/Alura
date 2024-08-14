@@ -1,0 +1,35 @@
+dir: visualizar diretorio
+
+
+criar arquivo 
+type nul > meu_arquivo.txt
+
+ver o texto dentro do arquivo
+type nomearquivo.txt
+
+
+mover arquivo para pasta
+move comandosTerminalCuso.txt .\curso-terminal
+
+
+copiar arquivo
+copy arquivo.txt novo.txt
+
+
+rename 
+rename novo.txt newName.txt
+
+
+del 
+del *.txt
+del newName.txt
+
+compactar e descompactar aqrv
+tar --help 
+criar tar -cf
+extrair tar -xf
+listar tar -tf
+
+variável no prompt
+set msg="teste"
+echo %mensagem%
