@@ -1,11 +1,13 @@
 // Make sure to include these imports:
-import { GoogleGenerativeAI } from "@google/generative-ai";
+//import { GoogleGenerativeAI } from "@google/generative-ai";
+//import 'dotenv/config'
+// const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+// const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
 import { fazerPergunta } from "./pergunta.js";
-import 'dotenv/config'
+import { incializaModelo } from "./modelo.js";
 
-const genAI = new GoogleGenerativeAI(process.env.API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
+const model = await incializaModelo("gemini-1.5-flash")
 
 const chatSession = model.startChat({
     
@@ -39,7 +41,7 @@ const chatSession = model.startChat({
     ],
 });
 
-const prompt = await fazerPergunta("Fale com a IA: ");
+const prompt = await fazerPergunta("Pergunte algo sobre a biblia: ");
 const result = await chatSession.sendMessage(prompt);
 console.log(result.response.text());
 
