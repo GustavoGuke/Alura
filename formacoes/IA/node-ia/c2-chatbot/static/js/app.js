@@ -1,3 +1,5 @@
+import { response } from "express";
+
 const chat = document.querySelector('#chat');
 const input = document.querySelector('#input');
 const botaoEnviar = document.querySelector('#botao-enviar');
@@ -21,15 +23,29 @@ async function enviarMensagem() {
     const mensagem = input.value;
     input.value = '';
 
-    const novaBolha = criaBolhaUsuario();
-    novaBolha.innerHTML = mensagem;
-    chat.appendChild(novaBolha);
-
-    let novaBolhaBot = criaBolhaBot();
-    chat.appendChild(novaBolhaBot);
-    vaiParaFinalDoChat();
-    novaBolhaBot.innerHTML = mensagem;
-    vaiParaFinalDoChat();
+    try {
+        const response = await fetch('http://localhost:3000/chat',{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({'mensagem': mensagem})
+        })
+        
+        const novaBolha = criaBolhaUsuario();
+        novaBolha.innerHTML = mensagem;
+        chat.appendChild(novaBolha);
+        
+        let novaBolhaBot = criaBolhaBot();
+        chat.appendChild(novaBolhaBot);
+        vaiParaFinalDoChat();
+        
+        const respostaChat = await response.json()
+        novaBolhaBot.innerHTML = respostaChat;
+        vaiParaFinalDoChat();
+    } catch (error) {
+        alert(error)
+    }
 }
 
 function criaBolhaUsuario() {
