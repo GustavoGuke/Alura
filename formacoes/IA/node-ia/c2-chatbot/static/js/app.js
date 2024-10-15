@@ -1,5 +1,3 @@
-import { response } from "express";
-
 const chat = document.querySelector('#chat');
 const input = document.querySelector('#input');
 const botaoEnviar = document.querySelector('#botao-enviar');
@@ -40,8 +38,8 @@ async function enviarMensagem() {
         chat.appendChild(novaBolhaBot);
         vaiParaFinalDoChat();
         
-        const respostaChat = await response.json()
-        novaBolhaBot.innerHTML = respostaChat;
+        const resposta = await response.json();
+        novaBolhaBot.innerHTML = resposta.response;
         vaiParaFinalDoChat();
     } catch (error) {
         alert(error)
