@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import {Prompt} from "next/font/google"
 import "./globals.css";
 import { Aside } from "./components/Aside";
 
@@ -14,6 +15,12 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+const prompt = Prompt({
+  weight: ['400', '600'],
+  subsets: ['latin'],
+  display: 'swap'
+})
+
 export const metadata: Metadata = {
   title: "Code Connect",
   description: "curso",
@@ -27,10 +34,12 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={prompt.className}
       >
-        <Aside />
-        {children}
+        <div className="max-w-7xl my-14 mx-4 flex gap-7 h-screen">
+          <Aside />
+          {children}
+        </div>
       </body>
     </html>
   );
