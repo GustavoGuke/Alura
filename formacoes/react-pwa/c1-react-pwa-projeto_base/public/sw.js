@@ -1,5 +1,10 @@
 const CACHE_NAME = "meu_cache";
 
+self.addEventListener("fetch", (event) => {
+    console.log(`Baixando ${event.request.url}`);
+    event.respondWith(cachePrimeiro(event.request));
+  });
+
 self.addEventListener("install", (event) => {
     console.log("Instalando o Service Worker");
     event.waitUntil(
@@ -15,13 +20,18 @@ self.addEventListener("activate", (event) => {
 
 const cachePrimeiro = async (request) => {
     const respostaDoCache = await caches.match(request);
+  
     if (respostaDoCache) {
-        return respostaDoCache;
+      return respostaDoCache;
     }
-    return fetch(request);
-};
+  
+    const respostaRede = await fetch(request);
+    atualizaCache(request, respostaRede.clone());
+  
+    return respostaRede;
+  };
 
-self.addEventListener("fetch", (event) => {
-    console.log(`Baixando ${event.request.url}`);
-    event.respondWith(cachePrimeiro(event.request));
-});
+const atualizaCache = async (request, response) => {
+    const cache = await caches.open(CACHE_NAME);
+    await cache.put(request, response);
+  };
