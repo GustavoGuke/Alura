@@ -18,6 +18,8 @@ self.addEventListener("activate", (event) => {
     console.log("Service Worker Ativado");
 });
 
+
+
 const cachePrimeiro = async (request) => {
     const respostaDoCache = await caches.match(request);
   
@@ -29,6 +31,26 @@ const cachePrimeiro = async (request) => {
     atualizaCache(request, respostaRede.clone());
   
     return respostaRede;
+  };
+
+  self.addEventListener("fetch", (event) => {
+    console.log(`Baixando ${event.request.url}`);
+    event.respondWith(redePrimeiro(event.request));
+  });
+  
+  
+  
+  const redePrimeiro = async (request) => {
+    const respostaDaRede = await fetch(request);
+  
+    if (respostaDaRede) {
+      atualizaCache(request, respostaDaRede.clone());
+      return respostaDaRede;
+    }
+  
+    const respostaCache = await caches.match(request);
+  
+    return respostaCache;
   };
 
 const atualizaCache = async (request, response) => {
