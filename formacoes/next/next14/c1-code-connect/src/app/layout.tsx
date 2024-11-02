@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import {Prompt} from "next/font/google"
+import { Prompt } from "next/font/google"
 import "./globals.css";
 import { Aside } from "./components/Aside";
 
@@ -36,9 +36,9 @@ export default function RootLayout({
       <body
         className={prompt.className}
       >
-        <div className="max-w-7xl my-14 mx-auto flex gap-7 h-screen">
+        <div className="max-w-7xl my-14 mx-auto flex gap-7 h-screen justify-between">
           <Aside />
-          {children}
+            {children}
         </div>
       </body>
     </html>
