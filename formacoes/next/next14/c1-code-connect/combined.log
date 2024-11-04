@@ -102,3 +102,101 @@
 {"level":"info","message":"Todos os posts foram carregados"}
 {"level":"info","message":"Todos os posts foram carregados"}
 {"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:19)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:19)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:19)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:19)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:19)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:19)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:19)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:19)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:19)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:19)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:19)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:19)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:19)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:19)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:23)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:23)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:27)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:29)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:29)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:29)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:29)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:22)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:22)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:22)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:22)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:22)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:18)"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12502:13\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:14:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:26:18)"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}

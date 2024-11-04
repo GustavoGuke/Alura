@@ -8,10 +8,10 @@ type Props = {
 
 export const CardPost = ({ post }: Props) => {
     return (
-        <article className="w-476 ">
+        <article className="w-96 ">
             <header className="p-6 bg-gray-700 rounded-t-md">
                 <figure className="m-0">
-                    <Image className="rounded-md" src={post.cover} alt="" width={438} height={133}/>
+                    <Image className="rounded-md" src={post.cover} alt="" width={300} height={100}/>
                 </figure>
             </header>
             <section className="p-6 leading-150 m-0 text-sm bg-gray-900" >
