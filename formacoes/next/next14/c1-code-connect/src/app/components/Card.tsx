@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { Avatar } from "./Avatar"
 import { PostsDTO } from "../dtos/PostsDTO"
+import Link from "next/link"
 
 type Props = {
     post:PostsDTO
@@ -8,7 +9,8 @@ type Props = {
 
 export const CardPost = ({ post }: Props) => {
     return (
-        <article className="w-80 h-96">
+        <Link href={`posts/${post.slug}`}>
+            <article className="w-80 h-96">
             <header className="p-6 bg-gray-700 rounded-t-md">
                 <figure className="m-0">
                     <Image className="rounded-md" src={post.cover} alt="" width={300} height={100}/>
@@ -22,5 +24,6 @@ export const CardPost = ({ post }: Props) => {
                 <Avatar imageSrc={post.author.avatar} name={post.author.name} key={post.author.id}/>
             </footer>
         </article>
+        </Link>
     )
 }

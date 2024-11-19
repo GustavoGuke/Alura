@@ -367,3 +367,120 @@
 {"level":"info","message":"Todos os posts foram carregados"}
 {"level":"info","message":"Todos os posts foram carregados"}
 {"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"error","message":"Ops, alguma coisa correu mal fetch failed","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:13178:13\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async getAllPosts (webpack-internal:///(rsc)/./src/app/page.tsx:16:26)\n    at async Home (webpack-internal:///(rsc)/./src/app/page.tsx:30:34)"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Todos os posts foram carregados"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}
+{"level":"info","message":"Posts obtidos com sucesso"}

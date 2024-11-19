@@ -20,9 +20,7 @@ async function getAllPosts(page: number) {
 
 export default async function Home({ searchParams }: any) {
   const currentPage = searchParams?.page || 1
-  console.log(currentPage)
   const { data, prev, next } = await getAllPosts(currentPage)
-  console.log(prev, next)
   return (
     <>
       <div className="flex flex-wrap gap-8 ">
@@ -33,11 +31,8 @@ export default async function Home({ searchParams }: any) {
             )
           })
         }
-
-
-
       </div>
-      <div className="">
+      <div className="flex-col">
         {prev && <Link href={`/?page=${prev}`} className="text-slate-100">Página anterior</Link>}
         {next && <Link href={`/?page=${next}`} className="text-slate-100">Próxima página</Link>}
       </div>
