@@ -36,10 +36,9 @@ export default function RootLayout({
       <body
         className={prompt.className}
       >
-        <div className="max-w-7xl my-14 mx-auto flex gap-7 h-screen justify-between">
-          <Aside />
-            {children}
-        </div>
+        <>
+          {children}
+        </>
       </body>
     </html>
   );
