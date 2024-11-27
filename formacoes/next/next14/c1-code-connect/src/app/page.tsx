@@ -1,9 +1,11 @@
 
+import Link from "next/link";
 import { CardPost } from "./components/Card";
 import { PostsDTO } from "./dtos/PostsDTO";
 import logger from "@/logger";
+import { Aside } from "./components/Aside";
 
-async function getAllPosts(page:number) {
+async function getAllPosts(page: number) {
   try {
     const response = await fetch(`http://localhost:3042/posts?_page=${page}&_per_page=6`)
     if (!response.ok) {
@@ -17,18 +19,26 @@ async function getAllPosts(page:number) {
   }
 }
 
-export default async function Home() {
-  const {data} = await getAllPosts(1)
+export default async function Home({ searchParams }: any) {
+  const currentPage = searchParams?.page || 1
+  const { data, prev, next } = await getAllPosts(currentPage)
   return (
-    <div className="flex flex-wrap gap-8 ">
-      {
-        data.map((post: PostsDTO) => {
-          return (
-            <CardPost post={post} key={post.id}/>
-          )
-        })
-      }
-     
-    </div>
+    <>
+      <div className="max-w-7xl my-14 mx-auto flex gap-7 h-screen justify-between">
+      <Aside />
+        <div className="flex flex-wrap gap-8 ">
+          {
+            data.map((post: PostsDTO) => {
+              return (
+                <CardPost post={post} key={post.id} />
+              )
+            })
+          }
+        </div>
+      </div> <div className="">
+          {prev && <Link href={`/?page=${prev}`} className="text-slate-100">Página anterior</Link>}
+          {next && <Link href={`/?page=${next}`} className="text-slate-100">Próxima página</Link>}
+        </div>
+    </>
   );
 }
