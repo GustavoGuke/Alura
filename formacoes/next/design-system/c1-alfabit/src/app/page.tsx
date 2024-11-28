@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Button from "./components/Button";
 
 export default function Home() {
   return (
-    <div className="text-example">
-      c1 alura
+    <div >
+    
+      <Button>enviar</Button>
     </div>
   );
 }
