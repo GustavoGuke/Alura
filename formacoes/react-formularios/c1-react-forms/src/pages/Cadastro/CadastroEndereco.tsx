@@ -21,7 +21,23 @@ interface FormInputTipos {
 }
 
 const CadastroEndereco = () => {
-  const { register, handleSubmit, setError, setValue, watch, formState: { errors } } = useForm<FormInputTipos>();
+  const { register, 
+    handleSubmit, 
+    setError, 
+    setValue, 
+    watch, 
+    formState: { errors } } = useForm<FormInputTipos>({
+      mode: "all",
+      defaultValues: {
+        cep: "",
+        rua: "",
+        numeroRua: "",
+        bairro: "",
+        cidade: "",
+        estado: "",
+        localidade: "",
+      }
+    });
   const cepDigitado = watch("cep");
   const aoSubmeter = (dados: FormInputTipos) => {
     console.log(dados);
@@ -60,7 +76,7 @@ const CadastroEndereco = () => {
         <Fieldset>
           <Label htmlFor="campo-cep">CEP</Label>
           <Input 
-          {...register("cep")}
+            {...register("cep", { required: "Localidade obrigatória" })}
           $error={!!errors.cep}
           onBlur={() => fethEndereco(cepDigitado)}
           id="campo-cep" placeholder="Insira seu CEP" type="text" 
@@ -70,7 +86,7 @@ const CadastroEndereco = () => {
         <Fieldset>
           <Label htmlFor="campo-rua">Rua</Label>
           <Input 
-            {...register("rua")}
+            {...register("rua", { required: "Localidade obrigatória" })}
             $error={!!errors.rua}
           id="campo-rua" placeholder="Rua Agarikov" type="text" />
           {errors.rua && <ErrorMessage>{errors.rua.message}</ErrorMessage>}
@@ -80,7 +96,7 @@ const CadastroEndereco = () => {
           <Fieldset>
             <Label htmlFor="campo-numero-rua">Número</Label>
             <Input 
-            {...register("numeroRua")}
+              {...register("numeroRua", { required: "Localidade obrigatória" })}
             $error={!!errors.numeroRua}
             id="campo-numero-rua" placeholder="Ex: 1440" type="text" />
             {errors.numeroRua && <ErrorMessage>{errors.numeroRua.message}</ErrorMessage>}
@@ -88,7 +104,7 @@ const CadastroEndereco = () => {
           <Fieldset>
             <Label htmlFor="campo-bairro">Bairro</Label>
             <Input 
-            {...register("bairro")}
+              {...register("bairro", { required: "Localidade obrigatória" })}
             $error={!!errors.bairro}
             id="campo-bairro" placeholder="Vila Mariana" type="text" />
             {errors.bairro && <ErrorMessage>{errors.bairro.message}</ErrorMessage>}
