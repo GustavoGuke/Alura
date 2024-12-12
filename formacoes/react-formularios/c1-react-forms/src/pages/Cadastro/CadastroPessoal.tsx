@@ -1,6 +1,7 @@
 import { Button, Label, Fieldset, Input, Form, Titulo, ErrorMessage } from "../../components";
 import { Controller, useForm } from "react-hook-form";
 import InputMask from "../../components/InputMask";
+import { useEffect } from "react";
 
 interface FormInputTipos {
   nome: string;
@@ -11,7 +12,23 @@ interface FormInputTipos {
 }
 
 const CadastroPessoal = () => {
-  const { register, watch, handleSubmit, control, formState: { errors } } = useForm<FormInputTipos>();
+  const { register, watch, handleSubmit, control, reset, formState: { errors, isSubmitSuccessful } } = useForm<FormInputTipos>({
+    mode: "all",
+    defaultValues: {
+      nome: "",
+      email: "",
+      telefone: "",
+      senha: "",
+      senhaVerificada: "",
+
+    }
+  });
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
 
   const senha = watch("senha");
   const validaSenha = {
@@ -78,7 +95,7 @@ const CadastroPessoal = () => {
 
         <Controller control={control} name="telefone" rules={{
           pattern: {
-            value: /^\(\d{2, 3}\) \d{5}-\d{4}$/,
+            value: /^\(\d{2,3}\) \d{5}-\d{4}$/,
             message: "O telefone inserido está no formato incorreto",
           },
           required: "O campo telefone é obrigatório",
