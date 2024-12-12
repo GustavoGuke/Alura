@@ -1,5 +1,6 @@
 import { Button, Label, Fieldset, Input, Form, Titulo, ErrorMessage } from "../../components";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
+import InputMask from "../../components/InputMask";
 
 interface FormInputTipos {
   nome: string;
@@ -10,7 +11,7 @@ interface FormInputTipos {
 }
 
 const CadastroPessoal = () => {
-  const { register, watch, handleSubmit, formState: { errors } } = useForm<FormInputTipos>();
+  const { register, watch, handleSubmit, control, formState: { errors } } = useForm<FormInputTipos>();
 
   const senha = watch("senha");
   const validaSenha = {
@@ -48,7 +49,7 @@ const CadastroPessoal = () => {
             $error={!!errors.nome}
             {...register("nome", {
               required: "Campo de nome é obrigatório",
-              minLength: {value:5, message: "Minimo 5 caracteres"},
+              minLength: { value: 5, message: "Minimo 5 caracteres" },
             })}
             aria-invalid={errors.nome ? true : false}
           />
@@ -71,10 +72,33 @@ const CadastroPessoal = () => {
               validate: validarEmail,
             })}
           />
-           {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+          {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
         </Fieldset>
 
-        <Fieldset>
+
+        <Controller control={control} name="telefone" rules={{
+          pattern: {
+            value: /^\(\d{2, 3}\) \d{5}-\d{4}$/,
+            message: "O telefone inserido está no formato incorreto",
+          },
+          required: "O campo telefone é obrigatório",
+        }}
+          render={({ field }) => (
+            <Fieldset>
+              <Label>Telefone</Label>
+              <InputMask
+                mask="(99) 99999-9999"
+                placeholder="Ex: (DD) XXXXX-XXXX"
+                $error={!!errors.telefone}
+                onChange={field.onChange}
+              />
+              {errors.telefone && (
+                <ErrorMessage>{errors.telefone.message}</ErrorMessage>
+              )}
+            </Fieldset>
+          )}
+        />
+        {/* <Fieldset>
           <Label>Telefone</Label>
           <Input
             id="campo-telefone"
@@ -89,7 +113,7 @@ const CadastroPessoal = () => {
             })}
           />
           {errors.telefone && <ErrorMessage>{errors.telefone.message}</ErrorMessage>}
-        </Fieldset>
+        </Fieldset> */}
 
         <Fieldset>
           <Label htmlFor="campo-senha">Crie uma senha</Label>
@@ -115,7 +139,8 @@ const CadastroPessoal = () => {
             type="password"
             {...register("senhaVerificada", {
               required: "O campo de senha é obrigatório",
-              validate: validaSenha,})}
+              validate: validaSenha,
+            })}
           />
           {errors.senhaVerificada && <ErrorMessage>{errors.senhaVerificada.message}</ErrorMessage>}
         </Fieldset>

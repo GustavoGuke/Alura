@@ -5,7 +5,7 @@ export default function Cadastro() {
   return (
     <>
       <Logotipo />
-      <CadastroEndereco />
+      <CadastroPessoal />
     </>
   );
 }
