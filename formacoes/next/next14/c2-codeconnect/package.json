@@ -4,13 +4,21 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && prisma migrate deploy && next build",
     "start": "next start",
     "lint": "next lint"
   },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "dependencies": {
+<<<<<<< HEAD
     "@prisma/client": "^6.4.1",
+=======
+    "@prisma/client": "^6.0.0",
+>>>>>>> f420f09024baf267b43ab0d0d05825567ad21d40
     "next": "14.0.4",
+    "prisma": "^6.0.0",
     "react": "^18",
     "react-dom": "^18",
     "remark": "^15.0.1",

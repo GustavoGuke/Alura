@@ -1,5 +1,7 @@
 import { Button, Label, Fieldset, Input, Form, Titulo, ErrorMessage } from "../../components";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
+import InputMask from "../../components/InputMask";
+import { useEffect } from "react";
 
 interface FormInputTipos {
   nome: string;
@@ -10,7 +12,32 @@ interface FormInputTipos {
 }
 
 const CadastroPessoal = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormInputTipos>();
+  const { register, watch, handleSubmit, control, reset, formState: { errors, isSubmitSuccessful } } = useForm<FormInputTipos>({
+    mode: "all",
+    defaultValues: {
+      nome: "",
+      email: "",
+      telefone: "",
+      senha: "",
+      senhaVerificada: "",
+
+    }
+  });
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
+
+  const senha = watch("senha");
+  const validaSenha = {
+    obrigatorio: (val: string) =>
+      !!val || "Por favor, insira a senha novamente",
+    tamanhoMinimo: (val: string) =>
+      val.length >= 6 || "A senha deve ter pelo menos 6 caracteres",
+    senhaIguais: (val: string) => val === senha || "As senhas não correspondem",
+  };
 
   const aoSubmeter = (dados: FormInputTipos) => {
     console.log(dados);
@@ -39,7 +66,7 @@ const CadastroPessoal = () => {
             $error={!!errors.nome}
             {...register("nome", {
               required: "Campo de nome é obrigatório",
-              minLength: {value:5, message: "Minimo 5 caracteres"},
+              minLength: { value: 5, message: "Minimo 5 caracteres" },
             })}
             aria-invalid={errors.nome ? true : false}
           />
@@ -62,10 +89,33 @@ const CadastroPessoal = () => {
               validate: validarEmail,
             })}
           />
-           {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+          {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
         </Fieldset>
 
-        <Fieldset>
+
+        <Controller control={control} name="telefone" rules={{
+          pattern: {
+            value: /^\(\d{2,3}\) \d{5}-\d{4}$/,
+            message: "O telefone inserido está no formato incorreto",
+          },
+          required: "O campo telefone é obrigatório",
+        }}
+          render={({ field }) => (
+            <Fieldset>
+              <Label>Telefone</Label>
+              <InputMask
+                mask="(99) 99999-9999"
+                placeholder="Ex: (DD) XXXXX-XXXX"
+                $error={!!errors.telefone}
+                onChange={field.onChange}
+              />
+              {errors.telefone && (
+                <ErrorMessage>{errors.telefone.message}</ErrorMessage>
+              )}
+            </Fieldset>
+          )}
+        />
+        {/* <Fieldset>
           <Label>Telefone</Label>
           <Input
             id="campo-telefone"
@@ -80,7 +130,7 @@ const CadastroPessoal = () => {
             })}
           />
           {errors.telefone && <ErrorMessage>{errors.telefone.message}</ErrorMessage>}
-        </Fieldset>
+        </Fieldset> */}
 
         <Fieldset>
           <Label htmlFor="campo-senha">Crie uma senha</Label>
@@ -104,8 +154,12 @@ const CadastroPessoal = () => {
             id="campo-senha-confirmacao"
             placeholder="Repita a senha anterior"
             type="password"
-            {...register("senhaVerificada")}
+            {...register("senhaVerificada", {
+              required: "O campo de senha é obrigatório",
+              validate: validaSenha,
+            })}
           />
+          {errors.senhaVerificada && <ErrorMessage>{errors.senhaVerificada.message}</ErrorMessage>}
         </Fieldset>
         <Button type="submit">Avançar</Button>
       </Form>
