@@ -1,14 +1,22 @@
 import { CardPost } from "@/components/CardPost"
 import logger from "@/logger"
-
 import styles from './page.module.css'
 import Link from "next/link"
-
 import db from "../../prisma/db"
 
 async function getAllPosts (page) {
   try {
-    const posts = await db.post.findMany()
+    const posts = await db.post.findMany({
+      include: {
+        author: true, 
+      }
+    })
+    return {
+      data: posts,
+      prev: page > 1 ? page - 1 : null,
+      next: posts.length > 0 ? page + 1 : null
+    }
+
   } catch (error) {
     logger.error(error)
     return {
