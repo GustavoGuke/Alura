@@ -13,7 +13,7 @@ async function getAllPosts (page, searchTerm) {
     if (searchTerm) {
       where.title = {
         contains: searchTerm,
-        mode: 'insensitive'
+        // mode: 'insensitive'
       }
     }
 
@@ -28,7 +28,7 @@ async function getAllPosts (page, searchTerm) {
       take: perPage,
       skip,
       where,
-      orderBy: { createdAt: 'desc' },
+      orderBy: { id: 'desc' },
       include: {
         author: true
       }

@@ -1,7 +1,11 @@
 "use server"
 
+import { revalidatePath } from "next/cache";
 import db from "../../prisma/db";
+
 export async function incrementThumbsUp(postId) {
+
+    //await new Promise((resolve) => setTimeout(resolve, 1000))
     try { 
         await db.post.update({
             where: {
@@ -17,4 +21,6 @@ export async function incrementThumbsUp(postId) {
     } catch (error) {
         console.log(error)
     }
+    revalidatePath('/')
+    revalidatePath(`/${db.post.slug}`)
 }
