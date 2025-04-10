@@ -9,7 +9,7 @@ export const Modal = forwardRef(({ children }, ref) => {
     const closeModal = () => {
         dialologRef.current.close()
     }
-    const openMOdal = () => {
+    const openModal = () => {
         dialologRef.current.showModal()
     }
 
@@ -17,17 +17,18 @@ export const Modal = forwardRef(({ children }, ref) => {
     useImperativeHandle(ref, () => {
         return {
             closeModal,
-            openMOdal
+            openModal
         }
     })
 
     return (
         <dialog className={styles.dialog} ref={dialologRef}>
             <header className={styles.header}>
-                <button>
+                <button onClick={closeModal}>
                     X
                 </button>
             </header>
+            {children}
         </dialog>
     )
 })

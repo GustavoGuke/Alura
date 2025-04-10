@@ -56,3 +56,7 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.actions {
+    display: flex;
+}
