@@ -4,8 +4,11 @@ import styles from './cardpost.module.css'
 import Link from "next/link"
 import { IconButton } from "../IconButton"
 import { ThumbsUp } from "../icons/ThumbsUp"
+import { incrementThumbsUp } from "@/actions"
+import { ThumbsUpButton } from "./ThumbsUpButton"
 
 export const CardPost = ({ post, highlight }) => {
+    const submitThumbsUp = incrementThumbsUp.bind(null, post)
     return (
 
         <article className={styles.card} style={{ width: highlight ? 993 : 486 }}>
@@ -26,10 +29,8 @@ export const CardPost = ({ post, highlight }) => {
             <footer className={styles.footer}>
 
                 <div className={styles.likes}>
-                    <form action="">
-                        <IconButton>
-                            <ThumbsUp />
-                        </IconButton>
+                    <form action={submitThumbsUp}>
+                        <ThumbsUpButton />
                     </form>
                     <p className={styles.text}>
                         {post.likes}
