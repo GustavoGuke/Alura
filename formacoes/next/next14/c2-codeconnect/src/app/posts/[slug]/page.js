@@ -1,17 +1,17 @@
-import logger from "@/logger";
-import { remark } from "remark";
-import html from "remark-html";
-
-import styles from "./page.module.css";
-import { CardPost } from "@/components/CardPost";
-import { prisma } from "../../../../prisma/db";
-import { redirect } from "next/navigation";
 import Link from "next/link";
+import  db  from "../../../../prisma/db.js"
+import logger from "@/logger";
+import html from "remark-html";
+import styles from "./page.module.css";
+import { redirect } from "next/navigation";
+import { remark } from "remark";
+import { CardPost } from "@/components/CardPost";
 import { ArrowBack } from "@/components/icons/ArrowBack";
+
 
 async function getPostBySlug(slug) {
   try {
-    const post = await prisma.post.findFirst({
+    const post = await db.post.findFirst({
       where: {
         slug,
       },

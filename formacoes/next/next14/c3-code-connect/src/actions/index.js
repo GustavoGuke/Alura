@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import db from "../../prisma/db";
-export async function incrementThumbsUp(post) {
+export async function incrementThumbsUp(postId) {
     try { 
          await new Promise(resolve => setTimeout(resolve, 1000))
         await db.post.update({
@@ -22,5 +22,4 @@ export async function incrementThumbsUp(post) {
     } catch (error) {
         console.log(error)
     }
-
 }
