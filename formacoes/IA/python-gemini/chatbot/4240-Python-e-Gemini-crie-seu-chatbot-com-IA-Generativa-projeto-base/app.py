@@ -3,7 +3,9 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 import os
 from time import sleep
+from helper import carrega
 load_dotenv()
+
 
 CHAVE_API_GOOGLE = os.getenv("CHAVE_API_GOOGLE")
 MODELO_ESCOLHIDO = "gemini-1.5-flash"   
@@ -12,6 +14,8 @@ genai.configure(api_key=CHAVE_API_GOOGLE)
 app = Flask(__name__)
 app.secret_key = 'alura'
 
+contexto = carrega("contexto.txt")
+
 def bot(prompt):
     maximo_tentativas = 1
     repeticao = 0
@@ -19,8 +23,15 @@ def bot(prompt):
     while True:
         try:
             prompt_do_sistema = f"""
+            # PERSONA
+
             Você é um chatbot de atendimento a clientes de um e-commerce. 
             Você não deve responder perguntas que não sejam dados do ecommerce informado!
+
+            Você deve utilizar apenas dados que estejam dentro do 'contexto'
+
+            # CONTEXTO
+            {contexto}
             """
 
             configuracao_modelo = {
