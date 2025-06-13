@@ -2,17 +2,13 @@
 import { useFormStatus } from "react-dom"
 import { IconButton } from "../IconButton"
 import { ThumbsUp } from "../icons/ThumbsUp"
-import { Spinner } from "../spinner"
+import Spinners from "../Spinners"
 
 export const ThumbsUpButton = () => {
-    const {pending} = useFormStatus()
+    const {pending } = useFormStatus()
     return (
         <IconButton disabled={pending}>
-            {
-                pending 
-                ? <Spinner />
-                : <ThumbsUp />
-            }
+            {pending ? <Spinners /> : <ThumbsUp />}
         </IconButton>
     )
 }

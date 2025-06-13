@@ -57,6 +57,16 @@
     cursor: pointer;
 }
 
-.actions {
+.likes {
     display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.text {
+    color: #BCBCBC;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
 }
