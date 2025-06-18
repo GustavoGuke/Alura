@@ -4,7 +4,7 @@ import { FokusButton } from "../components/FokusButton";
 import { ActionButton } from "../components/ActionButton";
 import { Timer } from "../components/Timer";
 import { IconPause, IconPlay } from "../components/Icons";
-import { router, useRouter} from "expo-router";
+import { router, useRouter } from "expo-router";
 
 
 const pomodoro = [
@@ -48,14 +48,14 @@ export default function Pomodoro() {
     setTimerType(newTimerType)
     setSeconds(newTimerType.initialValue)
     clear()
-  }  
+  }
 
   const toggleTimer = () => {
     if (timerRef.current) {
       clear()
       return
     }
-    
+
     setTimerRunning(true)
 
     const id = setInterval(() => {
@@ -74,20 +74,20 @@ export default function Pomodoro() {
     <View
       style={styles.container}
     >
-      <Image source={timerType.image}/>
+      <Image source={timerType.image} />
       <View style={styles.actions}>
         <View style={styles.context}>
           {pomodoro.map(p => (
-            <ActionButton 
+            <ActionButton
               key={p.id}
-              active={ timerType.id === p.id }
+              active={timerType.id === p.id}
               onPress={() => toggleTimerType(p)}
               display={p.display}
             />
           ))}
         </View>
         <Timer totalSeconds={seconds} />
-        <FokusButton 
+        <FokusButton
           title={timerRunning ? 'Pausar' : 'Começar'}
           icon={timerRunning ? <IconPause /> : <IconPlay />}
           onPress={toggleTimer}
@@ -100,11 +100,11 @@ export default function Pomodoro() {
         <Text style={styles.footerText}>
           Desenvolvido por Alu
         </Text>
-        
-      </View>
-      <TouchableOpacity onPress={() => back.navigate("/")}>
-            <Text style={styles.footerText}>Voltar ao inicio</Text>
+
+        <TouchableOpacity onPress={() => back.navigate("/")}>
+          <Text style={styles.footerText}>Voltar ao inicio</Text>
         </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -134,6 +134,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     width: '80%',
+    marginBottom:50
   },
   footerText: {
     textAlign: 'center',
