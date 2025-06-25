@@ -2,11 +2,13 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Drawer } from 'expo-router/drawer';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
+import { TasksProvider } from '../components/context/TaskProvider';
 
 
 export default function Layout() {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <TasksProvider>
+      <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer
         screenOptions={{
           headerStyle: { backgroundColor: '#021123' },
@@ -58,5 +60,6 @@ export default function Layout() {
         />
       </Drawer>
     </GestureHandlerRootView>
+    </TasksProvider>
   );
 }
