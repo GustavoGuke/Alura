@@ -8,7 +8,7 @@ export function TasksProvider({children}) {
 
     const addTask = (description) => {
         setTasks(oldState => {
-            return [...oldState, {description, id: oldState.length + 1}]
+            return [...oldState, {description: description, id: oldState.length + 1}]
         })
     }
     const toggleTaskCompleted = (id) => {

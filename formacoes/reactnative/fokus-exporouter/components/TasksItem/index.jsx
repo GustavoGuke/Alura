@@ -2,8 +2,9 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 import { IconCheck, IconPencil, IconTrash } from "../Icons";
 
 export default function TaskItem({ completed, text, onToggleComplete, onPressEdit, onPressDelete  }) {
+    console.log(completed)
     const cardStyles = [styles.container];
-    if (completed) {
+    if(completed) {
         cardStyles.push(styles.cardCompleted)
       }
     return (

@@ -4,7 +4,7 @@ import { FokusButton } from "../components/FokusButton";
 import { ActionButton } from "../components/ActionButton";
 import { Timer } from "../components/Timer";
 import { IconPause, IconPlay } from "../components/Icons";
-import { router, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 
 
 const pomodoro = [

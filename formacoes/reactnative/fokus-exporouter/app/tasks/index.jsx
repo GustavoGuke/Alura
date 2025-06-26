@@ -1,22 +1,34 @@
-import { StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import TasksItem from "../../components/TasksItem";
 import { FokusButton } from "../../components/FokusButton";
 import { IconPlus } from "../../components/Icons";
 import { router } from "expo-router";
-
+import useTaskContext from "../../components/context/useTaskContext"
+import { useEffect } from "react";
 export default function Tasks() {
+    const { tasks, deleteTask, toggleTaskCompleted } = useTaskContext()
+    console.log(tasks)
+
     return (<View style={styles.container}>
         <View style={styles.wrapper} >
             <Text style={styles.text}>
                 Lista de tarefas:
             </Text>
             <View style={styles.inner}>
-                <TasksItem
-                    completed
-                    text="Estudar React"
-                />
-                <TasksItem
-                    text="Estudar React Native"
+
+                <FlatList
+                    data={tasks}
+                    keyExtractor={task => task.id}
+                    renderItem={({ item }) => <TasksItem 
+                    completed={item.completed}
+                    text={item.description} 
+                    onPressDelete={() => deleteTask(item.id)}
+                    onToggleComplete={() => {toggleTaskCompleted(item.id)}}
+                    />}
+                    showsVerticalScrollIndicator={false}
+                    ItemSeparatorComponent={() => <View style={styles.separator} />}
+                    contentContainerStyle={styles.listContent}
+                    ListEmptyComponent={() => <Text style={styles.empty}>Nenhum item aqui.</Text>}
                 />
             </View>
             <FokusButton
@@ -46,5 +58,20 @@ const styles = StyleSheet.create({
     },
     inner: {
         gap: 8
-    }
+    },
+    separator: {
+      width: "100%",
+      height: 1,
+      backgroundColor: "#EEF0F5",
+      marginVertical: 8,
+    },
+    listContent: {
+      paddingTop: 24,
+      paddingBottom: 20,
+    },
+    empty: {
+      fontSize: 14,
+      color: "#808080",
+      textAlign: 'center'
+    },
 })
