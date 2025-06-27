@@ -4,7 +4,7 @@ import { FokusButton } from "../../components/FokusButton";
 import { IconPlus } from "../../components/Icons";
 import { router } from "expo-router";
 import useTaskContext from "../../components/context/useTaskContext"
-import { useEffect } from "react";
+
 export default function Tasks() {
     const { tasks, deleteTask, toggleTaskCompleted } = useTaskContext()
     console.log(tasks)
